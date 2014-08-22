@@ -263,14 +263,14 @@ footer {
 .ProjectList-ul {
 	padding: 0;
 	list-style: none;
-	max-width: 1700px;
+	max-width: 1720px;
 	text-align: center;
 	margin: 0 auto;
 }
 
 .ProjectList-projectListItem {
 	display: inline-block;
-	margin: 0.667em;
+	margin: 0.833em;
 	vertical-align: top;
 	width: auto;
 }
