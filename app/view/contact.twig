@@ -1,0 +1,36 @@
+{% extends "base.layout.twig" %}
+
+{% block title %}Contact | Cédric Abt — Illustrateur{% endblock %}
+
+{%  block body %}
+	<a id="haut"></a>
+	<header class="AltHeader">
+		<img class="AltHeader-logoSmall LogoSmall" src="{{ app.asset('/img/logo-small.png') }}" alt="logo - renard">
+		<h4 class="AltHeader-altTagline AltTagline">Cédric Abt — Illustrateur</h4>
+		<nav class="AltHeader-altNav AltNav">
+			<ul>
+				<li class="AltNav-li"><a href="{{ app.path('route.home') }}" title="projets">projets</a></li>
+				<li class="AltNav-li"><a href="{{ app.path('route.about') }}" title="projets">à propos</a></li>
+				<li class="AltNav-li active">contact</li>
+			</ul>
+		</nav>
+	</header>
+	<section class="Content">
+		<img src="{{ app.asset('/img/illu-about.jpg') }}" alt="illustration – contact">
+		<p>
+			Disponible pour illustrations, éditions, faire le café, le ménage,
+			nettoyer votre voiture, passer le balai et d’autre choses super...
+		</p>
+		<h1>Me Contacter</h1>
+		<p>
+			<a class="ContactMail" href="">contact@cedricabt.com</a>
+		</p>
+	</section>
+	<footer class="Footer alt">
+		<div class="Footer-topButton">
+			<a class="TopButton" href="#haut" title="retour en haut">
+				<img src="{{ app.asset('/img/top-arrow.png') }}" alt="flêche vers le haut">
+			</a>
+		</div>
+	</footer>
+{% endblock body %}

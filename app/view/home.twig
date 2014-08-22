@@ -1,0 +1,48 @@
+{% extends "base.layout.twig" %}
+
+{% block title %}Cédric Abt — Illustrateur{% endblock %}
+
+{%  block body %}
+	<a id="haut"></a>
+	<header class="HomeHeader">
+		<div class="HomeHeader-logoBig">
+			<img class="LogoBig" src="{{ app.asset('/img/logo.png') }}" alt="logo - renard">
+		</div>
+		<h1 class="HomeHeader-homeTagline HomeTagline">Cédric Abt — Illustrateur</h1>
+	</header>
+	<nav class="HomeNav">
+		<ul>
+			<li class="HomeNav-li active">projets</li>
+			<li class="HomeNav-li"><a href="{{ app.path('route.about') }}" title="à propos">à propos</a></li>
+			<li class="HomeNav-li"><a href="{{ app.path('route.contact') }}" title="contact">contact</a></li>
+		</ul>
+	</nav>
+	<section class="ProjectList">
+		<ul class="ProjectList-ul">
+			{%- for i in 1..23 -%}
+				<li class="ProjectList-projectListItem ProjectListItem">
+					<a class="ProjectListItem-a" href="{{ app.path('route.project', {name: 'projet-test'}) }}" title="aaaa">
+						<img src="{{ app.asset('/medias/thumb04.png') }}" alt="aaaa">
+						<div>
+							<div>
+								<h2 class="ProjectListItem-title">Pinocchio, oh ! Ma qué lou nez il est long.</h2>
+							</div>
+						</div>
+					</a>
+				</li>
+			{%- endfor -%}
+		</ul>
+	</section>
+	<footer class="Footer textcenter">
+		<div class="Footer-topButton">
+			<a class="TopButton" href="#haut" title="retour en haut">
+				<img src="{{ app.asset('/img/top-arrow.png') }}" alt="flêche vers le haut">
+			</a>
+		</div>
+		<p class="Footer-credits Credits">
+			Cédric Abt – {{ "now"|date("Y", "Europe/Paris") }}
+			<br>
+			fait main par <a href="http://rgsone.com" title="rgsone.com">rgsone</a>
+		</p>
+	</footer>
+{% endblock body %}

@@ -1,0 +1,9 @@
+## DATA
+
+# deny access for all files except images files .gif .png .jpg .jpeg
+
+Require all denied
+
+<FilesMatch \.(?:gif|jpeg|jpg|png)$>
+  Require all granted
+</FilesMatch>

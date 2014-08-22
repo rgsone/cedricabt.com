@@ -1,0 +1,25 @@
+{
+    "name": "cedricabt/cedricabt",
+	"description": "cedric abt website",
+	"license": "MIT",
+    "authors": [{
+		"name": "rgsone",
+		"email": "rgs@rgsone.com",
+		"homepage": "http://rgsone.com"
+	}],
+    "require": {
+		"php": ">=5.4.0",
+		"silex/silex": "1.2.1",
+		"twig/twig": "1.16.0",
+		"monolog/monolog": "1.10.0",
+		"netcarver/textile": "3.5.5"
+    },
+	"autoload": {
+		"psr-0": {
+			"CAbt": "app/"
+		}
+	},
+	"config": {
+		"vendor-dir": "libs/"
+	}
+}
