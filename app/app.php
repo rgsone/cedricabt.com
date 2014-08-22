@@ -1,5 +1,17 @@
 <?php
 
+/*#########################################################
+===========================================================
+
+	cedricabt.com
+
+	@author	rudy marc
+	@email	rgs@rgsone.com
+	@web	http://rgsone.com
+
+===========================================================
+#########################################################*/
+
 use CAbt\Silex\ControllerResolver;
 use CAbt\Silex\Provider\TextileServiceProvider;
 use Silex\Provider\MonologServiceProvider;
