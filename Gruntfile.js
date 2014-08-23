@@ -74,6 +74,7 @@ module.exports = function( grunt )
 					'dist/libs/symfony/http-foundation/Symfony/Component/HttpFoundation/Tests/',
 					'dist/libs/symfony/http-kernel/Symfony/Component/HttpKernel/Tests/',
 					'dist/libs/symfony/routing/Symfony/Component/Routing/Tests/',
+					'dist/libs/symfony/finder/Symfony/Component/Finder/Tests/',
 					'dist/libs/**/*.git',
 					'dist/public/bower-components/',
 					'dist/public/css/*.css',
