@@ -24,6 +24,7 @@ define( 'PATH_ROOT', __DIR__ . '/..' );
 
 define( 'PATH_WEB', __DIR__ );
 define( 'PATH_DATA', PATH_WEB . '/data' );
+define( 'PATH_DATA_PROJECTS', PATH_DATA . '/projects' );
 
 define( 'PATH_LIBS', PATH_ROOT . '/libs' );
 
