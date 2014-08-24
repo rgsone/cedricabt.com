@@ -13,11 +13,11 @@
 		"twig/twig": "1.16.0",
 		"monolog/monolog": "1.10.0",
 		"netcarver/textile": "3.5.5",
-		"symfony/finder": "2.5.3"
+		"symfony/finder": "2.5.3",
+		"illuminate/filesystem": "4.2.*@dev"
     },
 	"require-dev": {
-		"fzaninotto/faker": "1.5.*@dev",
-		"illuminate/filesystem": "4.2.*@dev"
+		"fzaninotto/faker": "1.5.*@dev"
 	},
 	"autoload": {
 		"psr-0": {
