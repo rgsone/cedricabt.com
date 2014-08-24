@@ -13,6 +13,8 @@
 #########################################################*/
 
 use CAbt\Silex\ControllerResolver;
+use CAbt\Silex\Provider\FilesystemServiceProvider;
+use CAbt\Silex\Provider\FinderServiceProvider;
 use CAbt\Silex\Provider\TextileServiceProvider;
 use Silex\Provider\MonologServiceProvider;
 use Silex\Provider\TwigServiceProvider;
@@ -25,6 +27,23 @@ $app['resolver'] = $app->share( function() use ( $app ) {
 	return new ControllerResolver( $app, $app['logger'] );
 });
 
+# Filesystem
+$app->register( new FilesystemServiceProvider() );
+
+# Finder (return a new Finder each time was call)
+$app->register( new FinderServiceProvider() );
+
+# Monolog
+$app->register( new MonologServiceProvider(), array(
+	  'monolog.name' => 'app.log',
+	  'monolog.logfile' => PATH_LOG . '/app.log'
+));
+
+# Textile
+$app->register( new TextileServiceProvider(), array(
+	  'textile.doctype' => 'html5'
+));
+
 # Twig
 $app->register( new TwigServiceProvider(), array(
 	'twig.path' => PATH_VIEW,
@@ -32,17 +51,6 @@ $app->register( new TwigServiceProvider(), array(
 		'cache' => PATH_CACHE,
 		'autoescape' => true
 	)
-));
-
-# Monolog
-$app->register( new MonologServiceProvider(), array(
-	'monolog.name' => 'app.log',
-	'monolog.logfile' => PATH_LOG . '/app.log'
-));
-
-# Textile
-$app->register( new TextileServiceProvider(), array(
-	'textile.doctype' => 'html5'
 ));
 
 # URL Generator
