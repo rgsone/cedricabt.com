@@ -12,7 +12,8 @@
 		"silex/silex": "1.2.1",
 		"twig/twig": "1.16.0",
 		"monolog/monolog": "1.10.0",
-		"netcarver/textile": "3.5.5"
+		"netcarver/textile": "3.5.5",
+		"symfony/finder": "2.5.3"
     },
 	"require-dev": {
 		"fzaninotto/faker": "1.5.*@dev",
