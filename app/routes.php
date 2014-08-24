@@ -28,7 +28,7 @@ $app->get( '/contact/', '\\CAbt\\Controller\\ContactController::show' )
 
 ## PROJECT
 $app->get( '/projet/{name}/', '\\CAbt\\Controller\\ProjectController::show' )
-	->assert( 'name', '[0-9A-Za-z_\-\.]{1,255}' )
+	->assert( 'name', '[0-9a-z_\-]{1,255}' )
 	->bind( ROUTE_PROJECT );
 
 ## ERROR
