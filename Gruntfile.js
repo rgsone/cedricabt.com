@@ -80,7 +80,8 @@ module.exports = function( grunt )
 					'dist/public/css/*.css',
 					'!dist/public/css/*.min.css',
 					'dist/public/js/**/*.js',
-					'!dist/public/js/**/*.min.js'
+					'!dist/public/js/**/*.min.js',
+					'dist/maintenance/'
 				],
 				dot: true
 			},
