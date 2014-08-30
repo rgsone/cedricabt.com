@@ -14,6 +14,7 @@
 
 namespace CAbt\Model;
 
+use CAbt\Model\ProjectItem;
 use Silex\Application;
 use Symfony\Component\Finder\Finder;
 
@@ -72,7 +73,7 @@ class ProjectList implements \IteratorAggregate, \Countable
 			// else create new ProjectItem object
 			if ( $this->_app['filesystem']->exists( $project->getPathname() . '/' . $this->_dataFileName ) )
 			{
-				$this->_projects[] = $project;
+				$this->_projects[] = new ProjectItem( $project );
 			}
 		}
 
@@ -84,6 +85,31 @@ class ProjectList implements \IteratorAggregate, \Countable
 	########################################################################
 
 	/**
+	 * Sort project list by date
+	 * @param string $sort ASC or DESC
+	 */
+	public function sortByDate( $sort = 'DESC' )
+	{
+		$descSortFunc = function( $a, $b ) {
+			if ( $a->getTimestamp() == $b->getTimestamp() ) return 0;
+			return ( $a->getTimestamp() < $b->getTimestamp() ) ? 1 : -1;
+		};
+
+		$ascSortFunc = function( $a, $b ) {
+			if ( $a->getTimestamp() == $b->getTimestamp() ) return 0;
+			return ( $a->getTimestamp() > $b->getTimestamp() ) ? 1 : -1;
+		};
+
+		$sortFunc = ( $sort === SORT_DESC ) ? $descSortFunc : $ascSortFunc;
+
+		usort( $this->_projects, $sortFunc );
+	}
+
+	########################################################################
+	//// GETTER / SETTER ///////////////////////////////////////////////////
+	########################################################################
+
+	/**
 	 * @return array All projects list
 	 */
 	public function getProjects()
@@ -91,19 +117,9 @@ class ProjectList implements \IteratorAggregate, \Countable
 		return $this->_projects;
 	}
 
-	/**
-	 * @param string $sort
-	 */
-	public function sortByDate( $sort = 'DESC' )
-	{
-		/*
-		usort( $this->_projects, function( $a, $b ) {
-			// check if getTimestamp method exist
-			if ( $a->getTimestamp() == $b->getTimestamp() ) return 0;
-			return ( $a->getTimestamp() < $b->getTimestamp() ) ? 1 : -1;
-		});
-		*/
-	}
+	########################################################################
+	//// INTERFACE IMPLEMENTATION //////////////////////////////////////////
+	########################################################################
 
 	/**
 	 * Retrieve an external iterator
