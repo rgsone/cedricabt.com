@@ -15,6 +15,7 @@
 namespace CAbt\Controller;
 
 use CAbt\Controller\BaseController;
+use CAbt\Model\ProjectItem;
 
 /**
  * Class ProjectController
@@ -22,8 +23,42 @@ use CAbt\Controller\BaseController;
  */
 class ProjectController extends BaseController
 {
+	########################################################################
+	//// PRIVATE VAR ///////////////////////////////////////////////////////
+	########################################################################
+
+	protected $dataFileName = 'data.tx';
+
+	########################################################################
+	//// PRIVATE METHOD ////////////////////////////////////////////////////
+	########################################################################
+
+	/**
+	 * @route 'route.project' > '/projet/{name}/'
+	 * @param $name
+	 * @return \Symfony\Component\HttpFoundation\Response
+	 */
 	public function show( $name )
 	{
-		return $this->render( 'project.twig', array( 'projectName' => $name ));
+		$projectPath = PATH_DATA_PROJECTS . DIRECTORY_SEPARATOR . $name;
+
+		// check if project exists
+		if ( !$this->app['filesystem']->exists( $projectPath ) )
+		{
+			$this->app->abort( 404 );
+		}
+
+		// check if data.tx file exists
+		if ( !$this->app['filesystem']->exists( $projectPath . DIRECTORY_SEPARATOR . $this->dataFileName ) )
+		{
+			$this->app->abort( 404 );
+		}
+
+		$project = new ProjectItem( new \SplFileInfo( $projectPath ) );
+		$project->setTextileParser( $this->app['textile'] );
+
+		return $this->render( 'project.twig', array(
+			'project' => $project
+		));
 	}
 } 
