@@ -14,6 +14,7 @@
 
 namespace CAbt\Model;
 
+use Netcarver\Textile\Parser;
 use Symfony\Component\Finder\Finder;
 
 /**
@@ -63,6 +64,8 @@ class ProjectItem
 	protected $_imagesPattern = '/\.(jpg|jpeg|gif|png)$/';
 	/** @var string */
 	protected $_dataFileName = 'data.tx';
+	/** @var \Netcarver\Textile\Parser */
+	protected $_textileParser;
 
 	########################################################################
 	//// CONSTRUCTOR ///////////////////////////////////////////////////////
@@ -210,19 +213,10 @@ class ProjectItem
 	########################################################################
 
 	/**
-	 * @return string
+	 * @return string Raw desc content
 	 */
-	public function getContent()
+	public function getDescContent()
 	{
-
-
-		/*
-		 * iterate à travers les lignes tant que l'ont croise pas une ligne vide
-		 * si une ligne vide est croisé on commence à récupérer le contenu jusqu'à la fin
-		 */
-
-
-		/*
 		$content = '';
 
 		$this->_fileObject->rewind();
@@ -235,7 +229,23 @@ class ProjectItem
 		}
 
 		return $content;
-		*/
+	}
+
+	/**
+	 * @return string Parsed desc content with textile
+	 */
+	public function getParsedDescContent()
+	{
+		if ( null == $this->_textileParser ) return '';
+		return $this->_textileParser->textileThis( $this->getDescContent() );
+	}
+
+	/**
+	 * @param Parser $parser
+	 */
+	public function setTextileParser( Parser $parser )
+	{
+		$this->_textileParser = $parser;
 	}
 
 	########################################################################
@@ -304,5 +314,13 @@ class ProjectItem
 	public function getTitle()
 	{
 		return $this->_title;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getInfos()
+	{
+		return $this->_infos;
 	}
 } 
