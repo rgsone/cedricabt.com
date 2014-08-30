@@ -2,8 +2,18 @@
 
 # deny access for all files except images files .gif .png .jpg .jpeg
 
-Require all denied
+#### APACHE > 2.4
 
+#Require all denied
+#<FilesMatch \.(?:gif|jpeg|jpg|png)$>
+#  Require all granted
+#</FilesMatch>
+
+#### APACHE < 2.4
+
+Allow from none
+Deny from all
 <FilesMatch \.(?:gif|jpeg|jpg|png)$>
-  Require all granted
+  Allow from all
+  Deny from none
 </FilesMatch>
