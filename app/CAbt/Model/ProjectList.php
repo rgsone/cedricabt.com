@@ -100,7 +100,7 @@ class ProjectList implements \IteratorAggregate, \Countable
 			return ( $a->getTimestamp() > $b->getTimestamp() ) ? 1 : -1;
 		};
 
-		$sortFunc = ( $sort === SORT_DESC ) ? $descSortFunc : $ascSortFunc;
+		$sortFunc = ( $sort == self::SORT_DESC ) ? $descSortFunc : $ascSortFunc;
 
 		usort( $this->_projects, $sortFunc );
 	}
