@@ -19,13 +19,17 @@
 	</nav>
 	<section class="ProjectList">
 		<ul class="ProjectList-ul">
-			{%- for i in 1..23 -%}
+			{%- for project in projects -%}
 				<li class="ProjectList-projectListItem ProjectListItem">
-					<a class="ProjectListItem-a" href="{{ app.path('route.project', {name: 'projet-test'}) }}" title="aaaa">
-						<img src="{{ app.asset('/medias/thumb04.png') }}" alt="aaaa">
+					<a class="ProjectListItem-a" href="{{ app.path('route.project', {name: project.getUrlSlug}) }}" title="{{ project.getTitle }}">
+						{% if project.getThumbName is not empty %}
+							<img src="{{ app.asset(project.getAssetPath ~ '/' ~ project.getThumbName) }}" alt="{{ project.getTitle }} - aperçu">
+						{% else %}
+							<img src="{{ app.asset('/img/default-thumb.png') }}" alt="{{ project.getTitle }} - aperçu">
+						{% endif %}
 						<div>
 							<div>
-								<h2 class="ProjectListItem-title">Pinocchio, oh ! Ma qué lou nez il est long.</h2>
+								<h2 class="ProjectListItem-title">{{ project.getTitle }}</h2>
 							</div>
 						</div>
 					</a>
