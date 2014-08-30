@@ -17,26 +17,18 @@
 	</header>
 	<div class="Content">
 		<section class="Content-project Project">
-			<h1 class="Project-h1">Pinocchio, salut à toi !</h1>
-			<p class="Project-info">2014 — Informations complémentaires</p>
+			<h1 class="Project-h1">{{ project.getTitle }}</h1>
+			<p class="Project-info">{{ project.getInfos }}</p>
 			<div class="Project-desc">
-				<p>
-					One morning, when Gregor <em>Samsa woke from troubled dreams</em>, he found himself transformed
-					in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head
-					a little he could see his brown belly, slightly domed and divided by arches into stiff sections.
-				</p>
-				<p>
-					The bedding was hardly <strong>able to cover it and seemed ready to slide off any moment</strong>. His many legs,
-					pitifully thin compared with the size of the rest of him, waved about helplessly as he looked.
-					<a href="/" title="aaa">"What's happened to me ?"</a> he thought. It wasn't a dream.
-				</p>
+				{# autoescape off because is textile content #}
+				{% autoescape false %}
+					{{ project.getParsedDescContent }}
+				{% endautoescape %}
 			</div>
 			<div class="Project-projectImg">
-				<img class="ProjectImg" src="{{ app.asset('/medias/project-img-1.jpg') }}" alt="aa">
-				<img class="ProjectImg" src="{{ app.asset('/medias/project-img-2.jpg') }}" alt="aa">
-				<img class="ProjectImg" src="{{ app.asset('/medias/project-img-1.jpg') }}" alt="aa">
-				<img class="ProjectImg" src="{{ app.asset('/medias/project-img-3.jpg') }}" alt="aa">
-				<img class="ProjectImg" src="{{ app.asset('/medias/project-img-2.jpg') }}" alt="aa">
+				{% for img in project.getImages %}
+					<img class="ProjectImg" src="{{ app.asset(project.getAssetPath ~ '/' ~ img) }}" alt="{{ img }}">
+				{% endfor %}
 			</div>
 		</section>
 	</div>
