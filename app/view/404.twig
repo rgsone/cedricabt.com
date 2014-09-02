@@ -2,11 +2,12 @@
 
 {% block title %}404 — Oups ! Cette page n'existe pas ! | Cédric Abt — Illustrateur{% endblock title %}
 
+{% block bodyclass %}class="Error404"{% endblock bodyclass %}
+
 {% block body %}
 	<div class="txtcenter">
 		<a href="{{ app.path('route.home') }}" title="Retour sur le site">
-			<img class="logo" src="{{ app.asset('/img/logo.png') }}" alt="logo - renard">
+			<img src="{{ app.asset('/img/404.jpg') }}" alt="404">
 		</a>
 	</div>
-	<h1 class="txtcenter">404 — Oups ! Cette page n'existe pas !</h1>
 {% endblock body %}

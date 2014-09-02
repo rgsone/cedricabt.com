@@ -489,6 +489,12 @@ footer {
 	margin: 1em 0;
 }
 
+/*  === 404 === */
+
+body.Error404 {
+	background-color: #F0E6DA;
+}
+
 /*  === breakpoints === */
 
 @media ( max-width: 740px ) {

@@ -22,7 +22,7 @@
 
 	<!--[if lt IE 9]><script src="{{ app.asset('/js/html5shiv.min.js') }}"></script><![endif]-->
 </head>
-<body>
+<body {% block bodyclass %}{% endblock %}>
 	{% block body %}{% endblock %}
 	{% block js %}
 	<!-- JS -->
