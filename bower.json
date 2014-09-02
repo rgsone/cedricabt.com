@@ -4,13 +4,11 @@
   "authors": [
     "rgsone <rgs@rgsone.com>"
   ],
-  "description": "rgsone website",
+  "description": "cédric abt website",
   "private": true,
   "dependencies": {
     "normalize.css": "~3.0.1",
-    "html5shiv": "~3.7.2",
-    "matchmedia": "~0.2.0",
-    "raf.js": "~0.0.4"
+    "html5shiv": "~3.7.2"
   },
   "license": "MIT"
 }
