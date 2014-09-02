@@ -18,51 +18,9 @@
 	<section class="Content">
 		<h1>À propos</h1>
 		<img src="{{ app.asset('/img/illu-about.png') }}" alt="illustration – à propos">
-		<h2>Biographie</h2>
-		<p>
-			Diplôme de L'école Supérieure des arts de Saint-Luc à tournai, je suis illustrateur indépendant depuis 2012.
-			<br>
-			Particulièrement attiré par le dessin, le graphisme et la peinture, j'ai développé dès mon cycle d'étude,
-			une technique consistant à combiner et mélanger plusieurs médias entre eux (peinture, pastel, crayon, collage)
-			pour aboutir à des images poétiques et colorées.
-			<br>
-			À l'heure actuelle, mes illustrations trouvent leur place dans des albums jeunesses, des artbooks, des romans,
-			des recueils de poésie ou toutes sortes de projets liés à la jeunesse et à l'image.
-		</p>
-		<h2>Publications</h2>
-		<p>
-			– <em>T'as carte blanche</em>, 2014
-			<br>
-			– <em>Pinocchio</em>, 2013, édition les fées du château
-			<br>
-			– <em>Plaquette illustrée</em>, 2013, Association droit au logement
-			<br>
-			– <em>Les petites moustaches, Emma et le jardin secret</em>, 2013
-			<br>
-			– <em>Artbook café salé</em>, 05,06,07,08
-			<br>
-			– <em>Pierres d'Encre</em>, 2012, Association le temps des rêves
-			<br>
-			– <em>Jakura</em>, 2012, ADK-Stand for Japan
-			<br>
-			– <em>Darla</em>, 2012, Revue Eulalie
-			<br>
-			– <em>Les enchanteurs</em>, 2012, Droits de cité
-			<br>
-			– <em>Les fables de la Fontaine</em>, 2012, Inpes
-			<br>
-			– <em>Catalogue Trophée Alain Godon</em>, 2012, Festival du Touquet
-		</p>
-		<h2>Expositions</h2>
-		<p>
-			– Exposition « illustration », 2014, école de dessin Maurice Quentin de la Tour
-			<br>
-			– Contrat local d'éducation, 2014, Partenariat avec la ville de Saint-Quentin
-			<br>
-			– Exposition la dinette, 2013, Lille, restaurant la dinette
-			<br>
-			– Sélectionné pour le Trophée Alain Godon, 2012, Festival du Touquet
-		</p>
+		{% autoescape false %}
+			{{ content }}
+		{% endautoescape %}
 	</section>
 	<footer class="Footer alt">
 		<div class="Footer-topButton">
