@@ -1,0 +1,14 @@
+version: '2'
+services:
+  web:
+    image: webdevops/php-apache-dev:debian-8
+    ports:
+      - "80:80"
+    volumes:
+      - ./../site-dev:/var/www/cabt
+      - ./php.ini:/opt/docker/etc/php/php.ini
+      - ./cabt.conf:/opt/docker/etc/httpd/vhost.common.d/50-cabt.conf
+    environment:
+      - ALLOW_OVERRIDE=true
+      - WEB_DOCUMENT_ROOT=/var/www/cabt/public
+      - WEB_ALIAS_DOMAIN=cabt.dev
