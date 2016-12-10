@@ -36,6 +36,7 @@ class ControllerResolver extends BaseControllerResolver
 			throw new \InvalidArgumentException( sprintf( 'Class "%s" does not exist.', $class ) );
 		}
 
+		# here inject app instance in constructor
 		return array( new $class( $this->app ), $method );
 	}
 } 

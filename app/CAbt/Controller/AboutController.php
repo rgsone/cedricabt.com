@@ -39,13 +39,13 @@ class AboutController extends BaseController
 	 */
 	protected function parseFile( $filePath )
 	{
-		try {
+		try
+		{
 			$file = new \SplFileObject( $filePath );
 		}
-		catch ( \RuntimeException $e ) {
-			throw new \Exception(
-				'File \'' . $file . '\' cannot be read.'
-			);
+		catch ( \RuntimeException $e )
+		{
+			throw new \Exception( 'File \'' . $file . '\' cannot be read.' );
 		}
 
 		$content = '';
@@ -78,8 +78,6 @@ class AboutController extends BaseController
 			$content = $textileParser->textileThis( $this->parseFile( $dataFilePath ) );
 		}
 
-		return $this->render( 'about.twig', array(
-			'content' => $content
-		));
+		return $this->render( 'about.twig', array( 'content' => $content ));
 	}
 } 

@@ -24,8 +24,6 @@ $app['monolog.level'] = Logger::WARNING;
 
 # twig
 $app['twig.options'] = array_replace(
-	array(
-		'strict_variables' => $app['debug']
-	),
+	array( 'strict_variables' => $app['debug'] ),
 	$app['twig.options']
 );

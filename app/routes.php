@@ -41,7 +41,7 @@ $app->error( function( \Exception $e, $code ) use ( $app ) {
 			break;
 
 		default :
-			$message = 'We are sorry, but something went terribly wrong.';
+			$message = 'Ah !!!!! Une erreur s\'est produite...';
 	}
 
 	if ( $app['debug'] ) $message .= '<br>Error Message: ' . $e->getMessage();
