@@ -5,7 +5,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./../site-dev:/var/www/cabt
+      - ./..:/var/www/cabt
       - ./php.ini:/opt/docker/etc/php/php.ini
       - ./cabt.conf:/opt/docker/etc/httpd/vhost.common.d/50-cabt.conf
     environment:
