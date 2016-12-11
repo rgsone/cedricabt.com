@@ -43,7 +43,7 @@ class BaseController
 	public function __construct( App $app )
 	{
 		$this->app = $app;
-		$this->request = $app['request'];
+		$this->request = $app['request_stack']->getCurrentRequest();
 	}
 
 	########################################################################

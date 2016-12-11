@@ -54,9 +54,9 @@ class ProjectItem
 
 	/** @var array Regex pattern for info parsing */
 	protected $_projectInfoPatterns = array(
-		  'title' => '/^title: (?P<title>.*)/',
-		  'infos' => '/^infos: (?P<infos>.*)/',
-		  'date' => '/^date: (?P<day>0[1-9]|[1-2][0-9]|3[01])\/(?P<month>0[1-9]|1[0-2])\/(?P<year>[0-9]{4})/'
+		'title' => '/^title: (?P<title>.*)/',
+		'infos' => '/^infos: (?P<infos>.*)/',
+		'date' => '/^date: (?P<day>0[1-9]|[1-2][0-9]|3[01])\/(?P<month>0[1-9]|1[0-2])\/(?P<year>[0-9]{4})/'
 	);
 	/** @var string */
 	protected $_thumbPattern = 'thumb.*';
@@ -90,11 +90,9 @@ class ProjectItem
 
 	protected function parse()
 	{
-		/**
-
+		/*
 		iteration ligne par ligne et test le pattern à chaque ligne
-		des que l'ont croise une ligne vide on termine l'iteration
-
+		des que l'on croise une ligne vide on termine l'iteration
 		*/
 
 		$this->parseDataFile();
@@ -273,6 +271,7 @@ class ProjectItem
 	 */
 	public function getAssetPath()
 	{
+		// move in const
 		return '/data/projects/' . $this->_dirname;
 	}
 

@@ -22,21 +22,8 @@ use Silex\ControllerResolver as BaseControllerResolver;
  */
 class ControllerResolver extends BaseControllerResolver
 {
-	protected function createController( $controller )
+	protected function instantiateController( $class )
 	{
-		if ( false === strpos( $controller, '::' ) )
-		{
-			throw new \InvalidArgumentException( sprintf( 'Unable to find controller "%s".', $controller ) );
-		}
-
-		list( $class, $method ) = explode( '::', $controller, 2 );
-
-		if ( !class_exists( $class ) )
-		{
-			throw new \InvalidArgumentException( sprintf( 'Class "%s" does not exist.', $class ) );
-		}
-
-		# here inject app instance in constructor
-		return array( new $class( $this->app ), $method );
+		return new $class( $this->app );
 	}
 } 

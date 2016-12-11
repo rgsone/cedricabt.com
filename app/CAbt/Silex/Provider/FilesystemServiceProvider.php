@@ -14,9 +14,9 @@
 
 namespace CAbt\Silex\Provider;
 
-use Illuminate\Filesystem\Filesystem;
-use Silex\Application;
-use Silex\ServiceProviderInterface;
+use Pimple\Container;
+use Pimple\ServiceProviderInterface;
+use Symfony\Component\Filesystem\Filesystem;
 
 /**
  * Class FilesystemServiceProvider
@@ -24,12 +24,10 @@ use Silex\ServiceProviderInterface;
  */
 class FilesystemServiceProvider implements ServiceProviderInterface
 {
-	public function register( Application $app )
+	public function register( Container $app )
 	{
-		$app['filesystem'] = $app->share( function() use ( $app ) {
+		$app['filesystem'] = function() {
 			return new Filesystem();
-		});
+		};
 	}
-
-	public function boot( Application $app ) { }
 }

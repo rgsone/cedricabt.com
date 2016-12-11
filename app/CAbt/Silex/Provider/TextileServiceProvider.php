@@ -15,8 +15,8 @@
 namespace CAbt\Silex\Provider;
 
 use Netcarver\Textile\Parser;
-use Silex\Application;
-use Silex\ServiceProviderInterface;
+use Pimple\Container;
+use Pimple\ServiceProviderInterface;
 
 /**
  * Class TextileServiceProvider
@@ -24,14 +24,11 @@ use Silex\ServiceProviderInterface;
  */
 class TextileServiceProvider implements ServiceProviderInterface
 {
-	public function register( Application $app )
+	public function register( Container $app )
 	{
 		$app['textile.doctype'] = ( isset( $app['textile.doctype'] ) ) ? $app['textile.doctype'] : 'xhtml';
-
-		$app['textile'] = $app->share( function() use ( $app ) {
+		$app['textile'] = function() use ( $app ) {
 			return new Parser( $app['textile.doctype'] );
-		});
+		};
 	}
-
-	public function boot( Application $app ) { }
 }

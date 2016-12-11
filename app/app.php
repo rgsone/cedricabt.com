@@ -17,15 +17,16 @@ use CAbt\Silex\Provider\FilesystemServiceProvider;
 use CAbt\Silex\Provider\FinderServiceProvider;
 use CAbt\Silex\Provider\TextileServiceProvider;
 use Silex\Provider\MonologServiceProvider;
+use Silex\Provider\RoutingServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
 
 #### SETUP SERVICE ####
 
 # Resolver (use our own resolver for controller contructor app injection)
-$app['resolver'] = $app->share( function() use ( $app ) {
+$app['resolver'] = function() use ( $app ) {
 	return new ControllerResolver( $app, $app['logger'] );
-});
+};
 
 # Filesystem
 $app->register( new FilesystemServiceProvider() );
@@ -54,4 +55,4 @@ $app->register( new TwigServiceProvider(), array(
 ));
 
 # URL Generator
-$app->register( new UrlGeneratorServiceProvider() );
+$app->register( new RoutingServiceProvider() );

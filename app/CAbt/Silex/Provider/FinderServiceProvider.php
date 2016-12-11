@@ -14,8 +14,8 @@
 
 namespace CAbt\Silex\Provider;
 
-use Silex\Application;
-use Silex\ServiceProviderInterface;
+use Pimple\Container;
+use Pimple\ServiceProviderInterface;
 use Symfony\Component\Finder\Finder;
 
 /**
@@ -24,10 +24,10 @@ use Symfony\Component\Finder\Finder;
  */
 class FinderServiceProvider implements ServiceProviderInterface
 {
-	public function register( Application $app )
+	public function register( Container $app )
 	{
-		$app['finder'] = function() { return new Finder(); };
+		$app['finder'] = $app->factory( function() {
+			return new Finder();
+		});
 	}
-
-	public function boot( Application $app ) { }
 }

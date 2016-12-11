@@ -39,13 +39,13 @@ class ContactController extends BaseController
 	 */
 	protected function parseFile( $filePath )
 	{
-		try {
+		try
+		{
 			$file = new \SplFileObject( $filePath );
 		}
-		catch ( \RuntimeException $e ) {
-			throw new \Exception(
-				'File \'' . $file . '\' cannot be read.'
-			);
+		catch ( \RuntimeException $e )
+		{
+			throw new \Exception( 'File \'' . $file . '\' cannot be read.' );
 		}
 
 		$content = '';

@@ -43,6 +43,6 @@ class App extends Application
 	 */
 	public function asset( $path )
 	{
-		return $this['request']->getBasePath() . $path;
+		return $this['request_stack']->getCurrentRequest()->getBasePath() . $path;
 	}
 } 

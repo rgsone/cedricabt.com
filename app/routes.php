@@ -12,6 +12,7 @@
 ===========================================================
 #########################################################*/
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 ## HOME
@@ -32,7 +33,7 @@ $app->get( '/projet/{name}/', '\\CAbt\\Controller\\ProjectController::show' )
 	->bind( ROUTE_PROJECT );
 
 ## ERROR
-$app->error( function( \Exception $e, $code ) use ( $app ) {
+$app->error( function( \Exception $e, Request $request, $code ) use ( $app ) {
 
 	switch ( $code )
 	{
