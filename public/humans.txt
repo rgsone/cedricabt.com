@@ -1,5 +1,6 @@
-/* TEAM */
-	Bidouilleur: RGSONE aka Rudy Marc
+# TEAM
+
+	Bidouilleur: rudy 'rgsone' marc
 	Site: http://rgsone.com
 	Email: rgs@rgsone.com
 	Location: France

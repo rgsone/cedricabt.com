@@ -12,11 +12,6 @@
 ===========================================================
 #########################################################*/
 
-#### ENV ####
-
-// 'dev' or 'prod'
-define( 'ENV_NAME', 'dev' );
-
 #### PATH ####
 
 define( 'PATH_ROOT', __DIR__ . '/..' );
@@ -40,10 +35,5 @@ require_once PATH_LIBS . '/autoload.php';
 #### OK LET'S GO ! ####
 
 $app = new \CAbt\App();
-
-require_once PATH_APP . '/app.php';
-require_once PATH_CONFIG . '/' . ENV_NAME . '.php';
-require_once PATH_CONFIG . '/route-name.php';
 require_once PATH_APP . '/routes.php';
-
 $app->run();
