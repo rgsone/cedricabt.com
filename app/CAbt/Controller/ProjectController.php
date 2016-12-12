@@ -24,12 +24,6 @@ use CAbt\Model\ProjectItem;
 class ProjectController extends BaseController
 {
 	########################################################################
-	//// PRIVATE VAR ///////////////////////////////////////////////////////
-	########################################################################
-
-	protected $dataFileName = 'data.tx';
-
-	########################################################################
 	//// PRIVATE METHOD ////////////////////////////////////////////////////
 	########################################################################
 
@@ -48,13 +42,17 @@ class ProjectController extends BaseController
 			$this->app->abort( 404 );
 		}
 
-		// check if data.tx file exists
-		if ( !$this->app['filesystem']->exists( $projectPath . DIRECTORY_SEPARATOR . $this->dataFileName ) )
+		// check if data file exists
+		if ( !$this->app['filesystem']->exists(
+			$projectPath . DIRECTORY_SEPARATOR .
+			$this->app['config']['data.filenames.project'] .
+			$this->app['config']['data.file_ext']
+		))
 		{
 			$this->app->abort( 404 );
 		}
 
-		$project = new ProjectItem( new \SplFileInfo( $projectPath ) );
+		$project = new ProjectItem( new \SplFileInfo( $projectPath ), $this->app );
 		$project->setTextileParser( $this->app['textile'] );
 
 		return $this->render( 'project.twig', array(

@@ -13,15 +13,15 @@
 	<nav class="HomeNav">
 		<ul>
 			<li class="HomeNav-li active">projets</li>
-			<li class="HomeNav-li"><a href="{{ app.path('route.about') }}" title="à propos">à propos</a></li>
-			<li class="HomeNav-li"><a href="{{ app.path('route.contact') }}" title="contact">contact</a></li>
+			<li class="HomeNav-li"><a href="{{ app.path(app.config.route.names.about) }}" title="à propos">à propos</a></li>
+			<li class="HomeNav-li"><a href="{{ app.path(app.config.route.names.contact) }}" title="contact">contact</a></li>
 		</ul>
 	</nav>
 	<section class="ProjectList">
 		<ul class="ProjectList-ul">
 			{%- for project in projects -%}
 				<li class="ProjectList-projectListItem ProjectListItem">
-					<a class="ProjectListItem-a" href="{{ app.path('route.project', {name: project.getUrlSlug}) }}" title="{{ project.getTitle }}">
+					<a class="ProjectListItem-a" href="{{ app.path(app.config.route.names.project, {name: project.getUrlSlug}) }}" title="{{ project.getTitle }}">
 						{% if project.getThumbName is not empty %}
 							<img src="{{ app.asset(project.getAssetPath ~ '/' ~ project.getThumbName) }}" alt="{{ project.getTitle }} - aperçu">
 						{% else %}

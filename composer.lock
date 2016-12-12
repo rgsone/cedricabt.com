@@ -4,38 +4,45 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b4a800e1fed34b822a819fd7dcebf80d",
-    "content-hash": "f3b4b31cafa463878df226e4950d0614",
+    "hash": "f8b86bd01b5b85e77e3af606398dfe0e",
+    "content-hash": "6d8380cccfa75c2220073b7d9da0c417",
     "packages": [
         {
-            "name": "hassankhan/config",
-            "version": "0.10.0",
+            "name": "m1/vars",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/hassankhan/config.git",
-                "reference": "06ac500348af033f1a2e44dc357ca86282626d4a"
+                "url": "https://github.com/m1/Vars.git",
+                "reference": "f496b40ebe4418783c3490efe30b92725249b833"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hassankhan/config/zipball/06ac500348af033f1a2e44dc357ca86282626d4a",
-                "reference": "06ac500348af033f1a2e44dc357ca86282626d4a",
+                "url": "https://api.github.com/repos/m1/Vars/zipball/f496b40ebe4418783c3490efe30b92725249b833",
+                "reference": "f496b40ebe4418783c3490efe30b92725249b833",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=5.3.0",
+                "symfony/filesystem": "^2.8 | ^3.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0",
+                "m1/env": "2.*",
+                "phpunit/phpunit": "4.*",
                 "scrutinizer/ocular": "~1.1",
-                "squizlabs/php_codesniffer": "~2.2"
+                "silex/silex": "1.3.*",
+                "squizlabs/php_codesniffer": "^2.3",
+                "symfony/yaml": "~2.8",
+                "yosymfony/toml": "~0.3"
             },
             "suggest": {
-                "symfony/yaml": "~2.5"
+                "m1/env": "For loading of Env files",
+                "symfony/yaml": "For loading of YAML files",
+                "yosymfony/toml": "For loading of Toml files"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Noodlehaus\\": "src"
+                    "M1\\Vars\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -44,25 +51,32 @@
             ],
             "authors": [
                 {
-                    "name": "Hassan Khan",
-                    "homepage": "http://hassankhan.me/",
+                    "name": "Miles Croxford",
+                    "email": "hello@milescroxford.com",
+                    "homepage": "http://milescroxford.com",
                     "role": "Developer"
                 }
             ],
-            "description": "Lightweight configuration file loader that supports PHP, INI, XML, JSON, and YAML files",
-            "homepage": "http://hassankhan.me/config/",
+            "description": "Vars is a simple to use and easily extendable configuration loader with in built loaders for ini, json, PHP, toml, XML and yaml/yml file types. It also comes with in built support for Silex and more frameworks to come soon.",
+            "homepage": "https://github.com/m1/vars",
             "keywords": [
                 "config",
                 "configuration",
+                "croxford",
                 "ini",
                 "json",
-                "microphp",
-                "unframework",
+                "loader",
+                "miles",
+                "php",
+                "provider",
+                "service",
+                "silex",
+                "toml",
+                "vars",
                 "xml",
-                "yaml",
                 "yml"
             ],
-            "time": "2016-02-11 16:21:17"
+            "time": "2016-05-18 12:35:01"
         },
         {
             "name": "monolog/monolog",
@@ -856,6 +870,61 @@
                 "url"
             ],
             "time": "2016-11-25 12:32:42"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "v3.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "f2300ba8fbb002c028710b92e1906e7457410693"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/f2300ba8fbb002c028710b92e1906e7457410693",
+                "reference": "f2300ba8fbb002c028710b92e1906e7457410693",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "symfony/console": "~2.8|~3.0"
+            },
+            "suggest": {
+                "symfony/console": "For validating YAML files using the lint command"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Yaml Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-11-18 21:17:59"
         },
         {
             "name": "twig/twig",

@@ -43,7 +43,10 @@ class ProjectList implements \IteratorAggregate, \Countable
 	protected $_projects = array();
 	/** @var int */
 	protected $_count = 0;
-	/** @var string */
+	/**
+	 * default name : data.tx
+	 * @var string
+	 */
 	protected $_dataFileName = 'data.tx';
 
 	########################################################################
@@ -57,6 +60,7 @@ class ProjectList implements \IteratorAggregate, \Countable
 	{
 		$this->_app = $app;
 		$this->_directories = $directories;
+		$this->_dataFileName = $app['config']['data.filenames.project'] . $app['config']['data.file_ext'];
 		$this->parse();
 	}
 
@@ -73,7 +77,7 @@ class ProjectList implements \IteratorAggregate, \Countable
 			// else create new ProjectItem object
 			if ( $this->_app['filesystem']->exists( $project->getPathname() . '/' . $this->_dataFileName ) )
 			{
-				$this->_projects[] = new ProjectItem( $project );
+				$this->_projects[] = new ProjectItem( $project, $this->_app );
 			}
 		}
 

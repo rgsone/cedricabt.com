@@ -23,12 +23,6 @@ use CAbt\Controller\BaseController;
 class ContactController extends BaseController
 {
 	########################################################################
-	//// PRIVATE VAR ///////////////////////////////////////////////////////
-	########################################################################
-
-	protected $contactDataFileName = 'contact.tx';
-
-	########################################################################
 	//// PRIVATE METHOD ////////////////////////////////////////////////////
 	########################################################################
 
@@ -39,12 +33,9 @@ class ContactController extends BaseController
 	 */
 	protected function parseFile( $filePath )
 	{
-		try
-		{
+		try {
 			$file = new \SplFileObject( $filePath );
-		}
-		catch ( \RuntimeException $e )
-		{
+		} catch ( \RuntimeException $e ) {
 			throw new \Exception( 'File \'' . $file . '\' cannot be read.' );
 		}
 
@@ -69,7 +60,9 @@ class ContactController extends BaseController
 	 */
 	public function show()
 	{
-		$dataFilePath = PATH_DATA . DIRECTORY_SEPARATOR . $this->contactDataFileName;
+		$dataFilePath = PATH_DATA . DIRECTORY_SEPARATOR .
+			$this->app['config']['data.filenames.contact'] .
+			$this->app['config']['data.file_ext'];
 		$content = '';
 
 		if ( $this->app['filesystem']->exists( $dataFilePath ) )

@@ -23,12 +23,6 @@ use CAbt\Controller\BaseController;
 class AboutController extends BaseController
 {
 	########################################################################
-	//// PRIVATE VAR ///////////////////////////////////////////////////////
-	########################################################################
-
-	protected $aboutDataFileName = 'about.tx';
-
-	########################################################################
 	//// PRIVATE METHOD ////////////////////////////////////////////////////
 	########################################################################
 
@@ -39,12 +33,9 @@ class AboutController extends BaseController
 	 */
 	protected function parseFile( $filePath )
 	{
-		try
-		{
+		try {
 			$file = new \SplFileObject( $filePath );
-		}
-		catch ( \RuntimeException $e )
-		{
+		} catch ( \RuntimeException $e ) {
 			throw new \Exception( 'File \'' . $file . '\' cannot be read.' );
 		}
 
@@ -69,7 +60,9 @@ class AboutController extends BaseController
 	 */
 	public function show()
 	{
-		$dataFilePath = PATH_DATA . DIRECTORY_SEPARATOR . $this->aboutDataFileName;
+		$dataFilePath = PATH_DATA . DIRECTORY_SEPARATOR .
+			$this->app['config']['data.filenames.about'] .
+			$this->app['config']['data.file_ext'];
 		$content = '';
 
 		if ( $this->app['filesystem']->exists( $dataFilePath ) )

@@ -17,20 +17,20 @@ use Symfony\Component\HttpFoundation\Response;
 
 ## HOME
 $app->get( '/', '\\CAbt\\Controller\\HomeController::show' )
-	->bind( ROUTE_HOME );
+	->bind( $app['config']['route.names.home'] );
 
 ## ABOUT
 $app->get( '/a-propos/', '\\CAbt\\Controller\\AboutController::show' )
-	->bind( ROUTE_ABOUT );
+	->bind( $app['config']['route.names.about'] );
 
 ## CONTACT
 $app->get( '/contact/', '\\CAbt\\Controller\\ContactController::show' )
-	->bind( ROUTE_CONTACT );
+	->bind( $app['config']['route.names.contact'] );
 
 ## PROJECT
 $app->get( '/projet/{name}/', '\\CAbt\\Controller\\ProjectController::show' )
 	->assert( 'name', '[0-9a-z_-]{1,255}' )
-	->bind( ROUTE_PROJECT );
+	->bind( $app['config']['route.names.project'] );
 
 ## ERROR
 $app->error( function( \Exception $e, Request $request, $code ) use ( $app ) {

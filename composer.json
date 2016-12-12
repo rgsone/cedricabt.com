@@ -15,7 +15,8 @@
 		"netcarver/textile": "^3.6",
 		"symfony/finder": "^3.2",
 		"symfony/filesystem": "^3.2",
-		"hassankhan/config": "^0.10.0"
+		"symfony/yaml": "^3.2",
+		"m1/vars": "^1.1"
 	},
 	"require-dev": {
 		"fzaninotto/faker": "^1.6"

@@ -14,6 +14,7 @@
 
 namespace CAbt\Model;
 
+use CAbt\App;
 use Netcarver\Textile\Parser;
 use Symfony\Component\Finder\Finder;
 
@@ -27,6 +28,8 @@ class ProjectItem
 	//// PRIVATE VAR ///////////////////////////////////////////////////////
 	########################################################################
 
+	/** @var App App object */
+	protected $_app = null;
 	/** @var string Project filesystem full path */
 	protected $_path = '';
 	/** @var string Project directory name */
@@ -62,7 +65,10 @@ class ProjectItem
 	protected $_thumbPattern = 'thumb.*';
 	/** @var string */
 	protected $_imagesPattern = '/\.(jpg|jpeg|gif|png)$/';
-	/** @var string */
+	/**
+	 * default name : data.tx
+	 * @var string
+	 */
 	protected $_dataFileName = 'data.tx';
 	/** @var \Netcarver\Textile\Parser */
 	protected $_textileParser;
@@ -74,13 +80,14 @@ class ProjectItem
 	/**
 	 * @param \SplFileInfo $fileInfo
 	 */
-	public function __construct( \SplFileInfo $fileInfo )
+	public function __construct( \SplFileInfo $fileInfo, App $app )
 	{
+		$this->_app = $app;
 		$this->_date = new \DateTime();
 		$this->_path = $fileInfo->getRealPath();
 		$this->_dirname = $fileInfo->getBasename();
 		$this->_urlSlug = $fileInfo->getBasename();
-
+		$this->_dataFileName = $this->_app['config']['data.filenames.project'] . $this->_app['config']['data.file_ext'];
 		$this->parse();
 	}
 
