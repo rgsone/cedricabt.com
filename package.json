@@ -1,7 +1,10 @@
 {
   "name": "cedricabt",
   "author": "rgsone",
+  "license": "MIT",
   "devDependencies": {
+    "del": "^2.2.2",
+    "fs": "^0.0.1-security",
     "gulp": "^3.9.1",
     "normalize.css": "^5.0.0"
   }
