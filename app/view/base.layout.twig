@@ -32,7 +32,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<link rel="icon" href="{{ app.asset('/favicon.ico') }}">
-	<link rel="stylesheet" href="{{ app.asset('/assets/css/app-f66035b2.css') }}" media="all">
+	{% if not app.isDev() %}
+	<link rel="stylesheet" href="{{ app.getCss() }}" media="all">
+	{% endif %}
 
 </head>
 <body {% block bodyclass %}{% endblock %}>
@@ -41,6 +43,7 @@
 	<!-- JS -->
 	{# <script src="/js/vendor/vendor.min.js'"></script> #}
 	{# <script src="'/js/app.min.js'"></script> #}
+	<script src="{{ app.getJs() }}"></script>
 	{% endblock %}
 </body>
 </html>

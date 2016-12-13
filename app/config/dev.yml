@@ -1,2 +1,5 @@
 monolog:
   level: 100
+webpack:
+  dev:
+    script_path: 'http://localhost:1337/assets/js/app.js'

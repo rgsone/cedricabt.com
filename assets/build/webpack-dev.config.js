@@ -50,11 +50,22 @@ module.exports = {
 			},
 
 			{
-				test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|otf)(\?.*)?$/,
+				test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+				exclude: /font/,
 				loader: 'url-loader',
 				query: {
-					limit: 1000,
+					limit: 500,
 					name: 'img/[name]-[hash:6].[ext]'
+				}
+			},
+
+			{
+				test: /\.(svg|woff2?|eot|ttf|otf)(\?.*)?$/,
+				exclude: /img/,
+				loader: 'url-loader',
+				query: {
+					limit: 500,
+					name: 'font/[name]-[hash:6].[ext]'
 				}
 			}
 

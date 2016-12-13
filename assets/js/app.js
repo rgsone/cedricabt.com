@@ -1,5 +1,3 @@
-//require( './../css/app.scss' );
-
 class App
 {
 	constructor( msg )
@@ -19,5 +17,6 @@ app.logMsg();
 /* ########################################### */
 
 // necessary for hot reloading
-if ( module.hot )
+if ( module.hot ) {
 	module.hot.accept();
+}

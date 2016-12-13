@@ -37,7 +37,7 @@ app.get( '*', function( req, res ) {
 });
 */
 
-app.listen( globalConfig.port, 'localhost', function( err ) {
+app.listen( globalConfig.port, globalConfig.host, function( err ) {
 
 	if ( err ) return console.error( err );
 

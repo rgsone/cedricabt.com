@@ -6,7 +6,7 @@
 	<a id="haut"></a>
 	<header class="HomeHeader">
 		<div class="HomeHeader-logoBig">
-			<img class="LogoBig" src="{{ app.asset('/assets/img/logo.png') }}" alt="logo - renard">
+			<img class="LogoBig" src="{{ app.asset('/assets/static/logo.png') }}" alt="logo - renard">
 		</div>
 		<h1 class="HomeHeader-homeTagline HomeTagline">Cédric Abt — Illustrateur</h1>
 	</header>
@@ -25,7 +25,7 @@
 						{% if project.getThumbName is not empty %}
 							<img src="{{ app.asset(project.getAssetPath ~ '/' ~ project.getThumbName) }}" alt="{{ project.getTitle }} - aperçu">
 						{% else %}
-							<img src="{{ app.asset('/assets/img/default-thumb.png') }}" alt="{{ project.getTitle }} - aperçu">
+							<img src="{{ app.asset('/assets/static/default-thumb.png') }}" alt="{{ project.getTitle }} - aperçu">
 						{% endif %}
 						<div>
 							<div>
@@ -40,7 +40,7 @@
 	<footer class="Footer textcenter">
 		<div class="Footer-topButton">
 			<a class="TopButton" href="#haut" title="retour en haut">
-				<img src="{{ app.asset('/assets/img/top-arrow.png') }}" alt="flêche vers le haut">
+				<img src="{{ app.asset('/assets/static/top-arrow.png') }}" alt="flêche vers le haut">
 			</a>
 		</div>
 		<p class="Footer-credits Credits">

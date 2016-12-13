@@ -5,7 +5,7 @@
 {%  block body %}
 	<a id="haut"></a>
 	<header class="AltHeader">
-		<img class="AltHeader-logoSmall LogoSmall" src="{{ app.asset('/assets/img/logo-small.png') }}" alt="logo - renard">
+		<img class="AltHeader-logoSmall LogoSmall" src="{{ app.asset('/assets/static/logo-small.png') }}" alt="logo - renard">
 		<h4 class="AltHeader-altTagline AltTagline">Cédric Abt — Illustrateur</h4>
 		<nav class="AltHeader-altNav AltNav">
 			<ul>
@@ -17,7 +17,7 @@
 	</header>
 	<section class="Content">
 		<h1>Me contacter</h1>
-		<img src="{{ app.asset('/assets/img/illu-contact.png') }}" alt="illustration – contact">
+		<img src="{{ app.asset('/assets/static/illu-contact.png') }}" alt="illustration – contact">
 		{% autoescape false %}
 			{{ content }}
 		{% endautoescape %}
@@ -26,7 +26,7 @@
 	<footer class="Footer alt">
 		<div class="Footer-topButton">
 			<a class="TopButton" href="#haut" title="retour en haut">
-				<img src="{{ app.asset('/assets/img/top-arrow.png') }}" alt="flêche vers le haut">
+				<img src="{{ app.asset('/assets/static/top-arrow.png') }}" alt="flêche vers le haut">
 			</a>
 		</div>
 	</footer>

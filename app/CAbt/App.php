@@ -20,6 +20,7 @@ use CAbt\Silex\Provider\FilesystemServiceProvider;
 use CAbt\Silex\Provider\FinderServiceProvider;
 use CAbt\Silex\Provider\TextileServiceProvider;
 use CAbt\Silex\Provider\VarsServiceProvider;
+use CAbt\Silex\Provider\WebpackAssetsResolverServiceProvider;
 use M1\Vars\Vars;
 use Silex\Application;
 use Silex\Provider\MonologServiceProvider;
@@ -99,16 +100,48 @@ class App extends Application
 				'autoescape' => true
 			]
 		]);
+
+		# webpack assets resolver
+		## register provider only if prod env
+		if ( !$this->isDevEnv )
+		{
+			$this->register( new WebpackAssetsResolverServiceProvider(
+				PATH_WEB . $this['config']['webpack.assets_manifest']
+			));
+		}
 	}
 
 	/**
 	 * Generate path for asset
-	 *
 	 * @param $path
 	 * @return string
 	 */
 	public function asset( $path )
 	{
 		return $this['request_stack']->getCurrentRequest()->getBasePath() . $path;
+	}
+
+	public function getCss()
+	{
+		if ( $this->isDevEnv ) return '';
+
+		# TODO : maybe handle webpack multiple entries and return array with multiple css file
+		$css = $this['webpack_assets_resolver']->getAssetsPaths()[ $this['config']['webpack.main_entry_name'] ]['css'];
+		return $this->asset( $css );
+	}
+
+	public function getJs()
+	{
+		if ( $this->isDevEnv )
+			return $this['config']['webpack.dev.script_path'];
+
+		# TODO : maybe handle webpack multiple entries and return array with multiple js file
+		$js = $this['webpack_assets_resolver']->getAssetsPaths()[ $this['config']['webpack.main_entry_name'] ]['js'];
+		return $this->asset( $js );
+	}
+
+	public function isDev()
+	{
+		return $this->isDevEnv;
 	}
 } 

@@ -1,5 +1,8 @@
 env: 'prod'
 debug: false
+webpack:
+  main_entry_name: 'app'
+  assets_manifest: '/assets/assets.json'
 route:
   names:
     home: 'route.home'

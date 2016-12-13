@@ -87,11 +87,20 @@ const webpackProdConfig = {
 
 	plugins: [
 
-		new CleanPlugin([ 'assets' ], {
-			root: globalConfig.pathPublic,
-			verbose: true,
-			dry: false
-		}),
+		new CleanPlugin(
+			[
+				'assets/*.*',
+				'assets/css',
+				'assets/font',
+				'assets/js',
+			],
+			{
+				root: globalConfig.pathPublic,
+				verbose: true,
+				dry: false,
+				exclude: [ 'assets/static' ]
+			}
+		),
 
 		new ExtractTextPlugin({
 			filename:  'css/[name]-[contenthash:8].css',
@@ -132,12 +141,12 @@ const webpackProdConfig = {
 				keep_fnames: true
 			}
 		}),
-
+		/*
 		new CopyWebpackPlugin([{
 			from: './assets/img',
 			to: 'img'
 		}])
-
+		*/
 	],
 
 	devtool: false // 'source-map'
