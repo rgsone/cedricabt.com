@@ -1,0 +1,622 @@
+/*! cedricabt.com | @author rgsone | @url rgsone.com */
+/*	======================================================================
+		======================================================================
+		|
+		|		    ___           ___           ___           ___           ___           ___
+		|	     /\  \         /\  \         /\  \         /\  \         /\__\         /\  \
+		|	    /::\  \       /::\  \       /::\  \       /::\  \       /::|  |       /::\  \
+		|	   /:/\:\  \     /:/\:\  \     /:/\ \  \     /:/\:\  \     /:|:|  |      /:/\:\  \
+		|	  /::\~\:\  \   /:/  \:\  \   _\:\~\ \  \   /:/  \:\  \   /:/|:|  |__   /::\~\:\  \
+		|	 /:/\:\ \:\__\ /:/__/_\:\__\ /\ \:\ \ \__\ /:/__/ \:\__\ /:/ |:| /\__\ /:/\:\ \:\__\
+		|	 \/_|::\/:/  / \:\  /\ \/__/ \:\ \:\ \/__/ \:\  \ /:/  / \/__|:|/:/  / \:\~\:\ \/__/
+		|	    |:|::/  /   \:\ \:\__\    \:\ \:\__\    \:\  /:/  /      |:/:/  /   \:\ \:\__\
+		|	    |:|\/__/     \:\/:/  /     \:\/:/  /     \:\/:/  /       |::/  /     \:\ \/__/
+		|	    |:|  |        \::/  /       \::/  /       \::/  /        /:/  /       \:\__\
+		|	     \|__|         \/__/         \/__/         \/__/         \/__/         \/__/
+		|
+		|
+		|		cedricabt.com
+		|
+		|		@author rudy marc
+		|		@contact rgs@rgsone.com
+		|		@url http://rgsone.com
+		|
+		======================================================================
+		====================================================================== */
+
+/*	== var ============================================
+		=================================================== */
+
+$colorBgBase: #f8f8f8;
+$colorBgAlt: #b0a59d;
+$colorTypoBase: #32271e;
+$colorTypoLink: #b0a59d;
+$colorSelectionBg: #32271e;
+$colorSelectionTypo: #b0a59d;
+
+/*	== libs ===========================================
+		=================================================== */
+
+@import "~normalize.css";
+
+/*	== includes =======================================
+		=================================================== */
+
+@import "includes/helpers";
+
+/*	== styles =========================================
+		=================================================== */
+
+@import "app/commons";
+@import "app/font";
+@import "app/base";
+
+
+
+
+/* 	======================================================================
+		|	STRUCTURE
+		======================================================================
+		====================================================================== */
+
+/* 	=== HomeHeader === */
+
+.HomeHeader {
+	padding: 0 0 1px;
+	text-align: center;
+}
+
+.HomeHeader-logoBig {
+	margin-top: 7.222em;
+}
+
+.HomeHeader-homeTagline {
+	display: inline-block;
+	margin-top: 2.059em;
+	margin-bottom: 0;
+	vertical-align: top;
+}
+
+/* 	=== HomeTagline === */
+
+.HomeTagline {
+	font-size: 1.889em;
+	padding: .5em .5em .235em;
+	border: 4px solid #b0a59d;
+}
+
+/* 	=== HomeNav === */
+
+.HomeNav {
+	padding: 4em 0 2.222em;
+}
+
+.HomeNav > ul {
+	list-style: none;
+	text-align: center;
+	padding: 0;
+}
+
+.HomeNav-li {
+	display: inline;
+	margin: 0 1em;
+}
+
+.HomeNav-li.active {
+	border-bottom: .222em solid #b0a59d;
+	padding-bottom: .167em;
+}
+
+.HomeNav-li > a {
+	color: #32271e;
+	text-decoration: none;
+	border-bottom: .222em solid #f8f8f8;
+	padding-bottom: .167em;
+	transition: border-color 300ms ease;
+}
+.HomeNav-li > a:focus,
+.HomeNav-li > a:hover,
+.HomeNav-li > a:active {
+	border-color: #b0a59d;
+}
+
+/* 	=== ProjectList === */
+
+.ProjectList {
+	padding: 6em 0 2.222em;
+}
+
+.ProjectList-ul {
+	padding: 0;
+	list-style: none;
+	max-width: 1720px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.ProjectList-projectListItem {
+	display: inline-block;
+	margin: 0.833em;
+	vertical-align: top;
+	width: auto;
+}
+
+/* 	=== ProjectListItem === */
+
+.ProjectListItem-a {
+	display: block;
+	position: relative;
+}
+
+.ProjectListItem-a > div {
+	transition: opacity 180ms ease-out;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba( 0, 0, 0, .75 );
+	padding: 1.333em;
+	opacity: 0;
+}
+
+.ProjectListItem-a:focus > div,
+.ProjectListItem-a:hover > div,
+.ProjectListItem-a:active > div {
+	opacity: 1;
+}
+
+.ProjectListItem-a > img {
+	width: 100%;
+}
+
+.ProjectListItem-a > div > div {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	height: 100%;
+	border: 4px solid #f8f8f8;
+	padding: 1em;
+}
+
+.ProjectListItem-title {
+	color: #f8f8f8;
+	font-size: 1.111em;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+/* 	=== Footer === */
+
+.Footer {
+	padding: 5em 0;
+}
+
+.Footer.textcenter {
+	text-align: center;
+}
+
+.Footer.alt {
+	margin: 0 2.222em;
+}
+
+.TopButton > img {
+	transition: transform 200ms ease;
+}
+
+.TopButton > img:hover {
+	transform: translate( 0, -6px );
+}
+
+.Footer-credits {
+	margin-top: 5em;
+}
+
+.Credits {
+	font-size: 0.778em;
+}
+
+/* 	=== AltHeader === */
+
+.AltHeader {
+	padding: 2.222em 2.222em 0;
+}
+
+.AltHeader-logoSmall,
+.AltHeader-altTagline,
+.AltHeader-altNav {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.AltHeader-logoSmall,
+.AltHeader-altTagline {
+	margin: 0 2.222em 0 0;
+}
+
+/* 	=== AltNav === */
+
+.AltNav {
+	overflow: visible;
+}
+
+.AltNav > ul {
+	list-style: none;
+	padding: 0;
+}
+
+.AltNav-li {
+	display: inline;
+	margin: 0 1em 0 0;
+}
+
+.AltNav-li.active {
+	border-bottom: .222em solid #b0a59d;
+	padding-bottom: .167em;
+}
+
+.AltNav-li > a {
+	color: #32271e;
+	text-decoration: none;
+	border-bottom: .222em solid #f8f8f8;
+	padding-bottom: .167em;
+	transition: border-color 300ms ease;
+}
+.AltNav-li > a:focus,
+.AltNav-li > a:hover,
+.AltNav-li > a:active {
+	border-color: #b0a59d;
+}
+
+/*  === Content === */
+
+.Content {
+	padding: 3.333em 2.222em 0;
+}
+
+.Content > h1 {
+	font-size: 2.222em;
+	line-height: 1.3;
+	margin: 1.25em 0 0.625em;
+	max-width: 17.5em;
+}
+
+.Content > h2 {
+	font-size: 1.667em;
+	line-height: 1.3;
+	margin: 1.25em 0 0.625em;
+	max-width: 23.333em;
+}
+
+.Content > h1:first-child {
+	margin-top: 0;
+}
+
+.Content > img {
+	display: block;
+	margin: 1.25em 0;
+}
+
+.Content > p {
+	font-size: 1.111em;
+	line-height: 1.4;
+	margin: 1.25em 0;
+	max-width: 35em;
+}
+
+/* === ContactMail === */
+
+.ContactMail {
+	color: #32271e;
+	text-decoration: none;
+	border-bottom: 4px solid #32271e;
+	transition: border-color 200ms ease, color 200ms ease;
+}
+.ContactMail:focus,
+.ContactMail:hover,
+.ContactMail:active {
+	border-bottom-color: #b0a59d;
+	color: #b0a59d;
+}
+
+/*  === Project === */
+
+.Project-h1 {
+	font-size: 2.222em;
+	line-height: 1.3;
+	margin: 0;
+	max-width: 17.5em;
+}
+
+.Project-info {
+	font-size: 0.889em;
+	line-height: 1.5;
+	margin: 0 0 1em;
+	max-width: 43.75em;
+}
+
+.Project-desc {
+	max-width: 38.889em;
+}
+
+.Project-desc > p {
+	font-size: 1.111em;
+	line-height: 1.4;
+	margin: 1.25em 0;
+}
+
+.Project-desc a {
+	text-decoration: none;
+}
+
+.ProjectImg {
+	display: block;
+	margin: 1em 0;
+}
+
+/*  === 404 === */
+
+body.Error404 {
+	background-color: #F0E6DA;
+}
+
+/*  === breakpoints === */
+
+@media ( max-width: 740px ) {
+
+	/* 	=== AltHeader === */
+
+	.AltHeader {
+		text-align: center;
+	}
+
+	.AltHeader-altTagline,
+	.AltHeader-altNav {
+		display: block;
+		vertical-align: baseline;
+	}
+
+	.AltHeader-logoSmall {
+		margin: 0;
+	}
+
+	.AltHeader-altTagline {
+		margin: 1.5em 0 0;
+	}
+
+	/* 	=== AltNav === */
+
+	.AltNav > ul {
+		margin: 2em 0 0;
+		padding: 2em 0;
+		border-top: 1px solid #b0a59d;
+		border-bottom: 1px solid #b0a59d;
+	}
+
+	.AltNav-li {
+		margin: 0 1em;
+	}
+
+	/* === Footer === */
+
+	.Footer.alt {
+		text-align: center;
+	}
+}
+
+@media ( max-width: 500px ) {
+
+	/* 	=== HomeHeader === */
+
+	.HomeHeader-logoBig {
+		margin-top: 2.222em;
+	}
+
+	.HomeHeader-homeTagline {
+		display: block;
+		vertical-align: baseline;
+	}
+
+	/* 	=== HomeTagline === */
+
+	.HomeTagline {
+		font-size: 1.333em;
+		border: none;
+	}
+
+	/* 	=== HomeNav === */
+
+	.HomeNav {
+		padding: 0;
+		margin: 2em 0 0;
+	}
+
+	.HomeNav > ul {
+		list-style: none;
+		text-align: center;
+		padding: 0;
+	}
+
+	.HomeNav-li {
+		display: block;
+		margin: 0;
+		padding: 0;
+		border-bottom: 1px solid #b0a59d;
+	}
+
+	.HomeNav-li:first-child {
+		border-top: 1px solid #b0a59d;
+	}
+
+	.HomeNav-li.active {
+		border-bottom: 1px solid #b0a59d;
+		padding: 1em 1em .8em;
+		background-color: #b0a59d;
+	}
+
+	.HomeNav-li > a {
+		display: block;
+		border-bottom: none;
+		padding: 1em 1em .8em;
+		transition: background-color 180ms ease;
+	}
+	.HomeNav-li > a:focus,
+	.HomeNav-li > a:hover,
+	.HomeNav-li > a:active {
+		background-color: #b0a59d;
+	}
+
+	/* 	=== ProjectList === */
+
+	.ProjectList {
+		padding: 2.222em 0 0;
+	}
+
+	/* 	=== ProjectListItem === */
+
+	.ProjectListItem-title {
+		font-size: 1em;
+	}
+
+	/* 	=== Footer === */
+
+	.Footer {
+		padding: 3em 0;
+	}
+
+	.Footer.alt {
+		margin: 0 1em;
+	}
+
+	.Footer-credits {
+		margin-top: 4em;
+	}
+
+	/* 	=== AltHeader === */
+
+	.AltHeader {
+		padding: 2.222em 0 0;
+	}
+
+	.AltHeader-altNav {
+		display: block;
+		vertical-align: baseline;
+	}
+
+	/* 	=== AltNav === */
+
+	.AltNav {
+		overflow: visible;
+	}
+
+	.AltNav > ul {
+		text-align: center;
+		border: none;
+		padding: 0;
+	}
+
+	.AltNav-li {
+		display: block;
+		margin: 0;
+		padding: 0;
+		border-bottom: 1px solid #b0a59d;
+	}
+
+	.AltNav-li:first-child {
+		border-top: 1px solid #b0a59d;
+	}
+
+	.AltNav-li.active {
+		border-bottom: 1px solid #b0a59d;
+		padding: 1em 1em .8em;
+		background-color: #b0a59d;
+	}
+
+	.AltNav-li > a {
+		display: block;
+		border-bottom: none;
+		padding: 1em 1em .8em;
+		transition: background-color 180ms ease;
+	}
+	.AltNav-li > a:focus,
+	.AltNav-li > a:hover,
+	.AltNav-li > a:active {
+		background-color: #b0a59d;
+	}
+
+	/*  === Content === */
+
+	.Content {
+		padding: 2.5em 1em 0;
+	}
+
+	.Content > h1 {
+		font-size: 1.778em;
+		max-width: none;
+	}
+
+	.Content > h2 {
+		font-size: 1.444em;
+		max-width: none;
+	}
+
+	.Content > p {
+		font-size: 0.889em;
+		line-height: 1.5;
+		max-width: none;
+	}
+
+	/*  === Project === */
+
+	.Project-h1 {
+		font-size: 1.778em;
+		max-width: none;
+	}
+
+	.Project-info {
+		font-size: 0.889em;
+		margin: .75em 0 1em;
+		max-width: none;
+		text-transform: uppercase;
+	}
+
+	.Project-desc {
+		max-width: none;
+	}
+
+	.Project-desc > p {
+		font-size: 0.889em;
+		line-height: 1.5;
+		max-width: none;
+	}
+}
+
+/* 	======================================================================
+		|		MEDIAS QUERIES
+		======================================================================
+		====================================================================== */
+
+
+/*	======================================================================
+		=== < 1024 =========================================================== */
+
+@media only screen and ( max-width: 1024px ) and ( orientation: landscape ) {
+	body {
+		-webkit-text-size-adjust: none;
+	}
+}
+
+
+/*	======================================================================
+		=== < 480 ============================================================ */
+
+@media only screen and ( max-width: 480px ) {
+	body {
+		-webkit-text-size-adjust: none;
+	}
+}
+
+/*	======================================================================
+		=== EOF ============================================================== */
+

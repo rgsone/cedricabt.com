@@ -1,0 +1,119 @@
+/* 	======================================================================
+		|	BASIC
+		======================================================================
+		====================================================================== */
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%; /* 10px */
+}
+
+body {
+	font-family: 'firaSans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 1.8em; /* 18px */
+	font-weight: bold;
+	line-height: 1.5;
+	color: $colorTypoBase;
+	background-color: $colorBgBase;
+	-webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+ul,
+ol {
+	padding-left: 2em;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+	-ms-interpolation-mode: bicubic;
+	border: 0;
+}
+
+em { font-style: italic; }
+strong { font-weight: bold; }
+
+figure { margin: 0; }
+
+::selection {
+	color: $colorSelectionTypo;
+	background: $colorSelectionBg;
+	text-shadow: none;
+}
+
+/*
+* {
+	word-wrap: break-word;
+	hyphens: auto;
+}
+*/
+
+p,
+ul,
+ol,
+dl,
+blockquote,
+pre,
+td,
+th,
+label,
+textarea,
+caption,
+details,
+figure {
+	line-height: 1.5;
+	margin-top: .75em;
+	margin-bottom: 0;
+}
+
+p:first-child,
+ul:first-child,
+ol:first-child,
+dl:first-child,
+blockquote:first-child,
+pre:first-child,
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child {
+	margin-top: 0;
+}
+
+code,
+pre,
+samp,
+kbd {
+	font-family: Consolas, Monaco, 'Lucida Console', Courier, monospace;
+	line-height: 1;
+	white-space: pre-line;
+}
+
+a {
+	transition: color 200ms ease;
+	text-decoration: none;
+	color: #b0a59d;
+}
+
+a:focus,
+a:hover,
+a:active {
+	color: #32271e;
+	text-decoration: none;
+}
+
+header,
+section,
+nav,
+footer {
+	overflow: hidden;
+}

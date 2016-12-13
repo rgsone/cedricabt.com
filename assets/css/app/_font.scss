@@ -1,0 +1,26 @@
+/* 	======================================================================
+		|	FONT-FACE
+		======================================================================
+		====================================================================== */
+
+@font-face {
+	font-family: 'firaSans';
+	font-weight: bold;
+	font-style: normal;
+	src: url( '../font/firasans-sbold.eot' );
+	src: url( '../font/firasans-sbold.eot?#iefix' ) format( 'embedded-opentype' ),
+	url( '../font/firasans-sbold.woff' ) format( 'woff' ),
+	url( '../font/firasans-sbold.ttf' ) format( 'truetype' ),
+	url( '../font/firasans-sbold.svg#firaSansBold' ) format( 'svg' );
+}
+
+@font-face {
+	font-family: 'firaSans';
+	font-weight: bold;
+	font-style: italic;
+	src: url( '../font/firasans-sbold-ita.eot' );
+	src: url( '../font/firasans-sbold-ita.eot?#iefix' ) format( 'embedded-opentype' ),
+	url( '../font/firasans-sbold-ita.woff' ) format( 'woff' ),
+	url( '../font/firasans-sbold-ita.ttf' ) format( 'truetype' ),
+	url( '../font/firasans-sbold-ita.svg#firaSansBoldIta' ) format( 'svg' );
+}
