@@ -43,6 +43,8 @@
     "webpack-hot-middleware": "^2.13.0"
   },
   "dependencies": {
-    "normalize.css": "^5.0.0"
+    "jump.js": "^1.0.1",
+    "normalize.css": "^5.0.0",
+    "scrollreveal": "^3.3.2"
   }
 }

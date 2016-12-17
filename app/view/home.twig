@@ -2,17 +2,21 @@
 
 {% block title %}Cédric Abt — Illustrateur{% endblock %}
 
+{% block bodyclass %}id="top"{% endblock %}
+
 {%  block body %}
-	<a id="haut"></a>
+	{#<a id="top"></a>#}
 	<header class="HomeHeader">
 		<div class="HomeHeader-logoBig">
 			<img class="LogoBig" src="{{ app.asset('/assets/static/logo.png') }}" alt="logo - renard">
 		</div>
-		<h1 class="HomeHeader-homeTagline HomeTagline">Cédric Abt — Illustrateur</h1>
+		<h1 class="HomeHeader-homeTagline HomeTagline">Cédric Abt</h1>
+		<h2 class="HomeHeader-homeSubTagline HomeSubTagline">Illustrateur</h2>
+		<div class="HomeHeader-homeSeparator HomeSeparator">~</div>
 	</header>
 	<nav class="HomeNav">
 		<ul>
-			<li class="HomeNav-li active">projets</li>
+			<li class="HomeNav-li active"><span>projets</span></li>
 			<li class="HomeNav-li"><a href="{{ app.path(app.config.route.names.about) }}" title="à propos">à propos</a></li>
 			<li class="HomeNav-li"><a href="{{ app.path(app.config.route.names.contact) }}" title="contact">contact</a></li>
 		</ul>
@@ -20,7 +24,7 @@
 	<section class="ProjectList">
 		<ul class="ProjectList-ul">
 			{%- for project in projects -%}
-				<li class="ProjectList-projectListItem ProjectListItem">
+				<li class="ProjectList-projectListItem ProjectListItem" >
 					<a class="ProjectListItem-a" href="{{ app.path(app.config.route.names.project, {name: project.getUrlSlug}) }}" title="{{ project.getTitle }}">
 						{% if project.getThumbName is not empty %}
 							<img src="{{ app.asset(project.getAssetPath ~ '/' ~ project.getThumbName) }}" alt="{{ project.getTitle }} - aperçu">
@@ -37,10 +41,12 @@
 			{%- endfor -%}
 		</ul>
 	</section>
-	<footer class="Footer textcenter">
+	<footer class="Footer txtcenter">
 		<div class="Footer-topButton">
-			<a class="TopButton" href="#haut" title="retour en haut">
-				<img src="{{ app.asset('/assets/static/top-arrow.png') }}" alt="flêche vers le haut">
+			<a class="TopButton" href="#top" title="retour en haut" data-backtotop>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 41">
+					<path class="ArrowTopPath" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" d="M9 .5v40M.5 9L9 .5M9 .5L17.5 9"/>
+				</svg>
 			</a>
 		</div>
 		<p class="Footer-credits Credits">

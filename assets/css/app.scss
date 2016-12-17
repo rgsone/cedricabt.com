@@ -24,20 +24,28 @@
 		======================================================================
 		====================================================================== */
 
-/*	== var ============================================
-		=================================================== */
-
-$colorBgBase: #f8f8f8;
-$colorBgAlt: #b0a59d;
-$colorTypoBase: #32271e;
-$colorTypoLink: #b0a59d;
-$colorSelectionBg: #32271e;
-$colorSelectionTypo: #b0a59d;
-
 /*	== libs ===========================================
 		=================================================== */
 
 @import "~normalize.css";
+
+/*	== var ============================================
+		=================================================== */
+
+$colorBgBase: #fff8ec;
+$colorBgAlt: #fffcf5;
+
+$colorTypoBase: #3c2e24;
+$colorTypoLink: #3c2e24;
+$colorTypoLinkHover: #b0a59d;
+$colorTypoAltLinkHover: #000;
+
+$colorSelectionBg: #3c2e24;
+$colorSelectionTypo: #fffcf5;
+
+$typoBaseSize: 1.8rem;
+$typoBaseWeight: 400;
+$typoBaseLineHeight: 1.5;
 
 /*	== includes =======================================
 		=================================================== */
@@ -51,79 +59,150 @@ $colorSelectionTypo: #b0a59d;
 @import "app/font";
 @import "app/base";
 
-
-
-
 /* 	======================================================================
 		|	STRUCTURE
 		======================================================================
 		====================================================================== */
 
+body {
+	padding: 1px 0 0;
+}
+
 /* 	=== HomeHeader === */
 
 .HomeHeader {
-	padding: 0 0 1px;
+	background-color: $colorBgAlt;
+	padding: 0;
+	margin: 4rem 4rem 0;
 	text-align: center;
 }
 
 .HomeHeader-logoBig {
-	margin-top: 7.222em;
-}
-
-.HomeHeader-homeTagline {
-	display: inline-block;
-	margin-top: 2.059em;
-	margin-bottom: 0;
-	vertical-align: top;
+	margin-top: 12rem;
+	margin-bottom: 8rem;
 }
 
 /* 	=== HomeTagline === */
 
+.HomeHeader-homeTagline {
+	margin: 0;
+}
+
 .HomeTagline {
-	font-size: 1.889em;
-	padding: .5em .5em .235em;
-	border: 4px solid #b0a59d;
+	font-size: 4rem;
+	font-weight: 600;
+	font-style: italic;
+	line-height: 1;
+}
+
+.HomeHeader-homeSubTagline {
+	margin: 0;
+}
+
+.HomeSubTagline {
+	font-size: 3rem;
+	font-weight: 400;
+	font-style: italic;
+}
+
+/* 	=== HomeSeparator === */
+
+.HomeHeader-homeSeparator {
+	margin: 3.6rem 0 4rem;
+}
+
+.HomeSeparator {
+	font-size: 3rem;
+	line-height: 1;
+	font-weight: 600;
 }
 
 /* 	=== HomeNav === */
 
 .HomeNav {
-	padding: 4em 0 2.222em;
-}
+	background-color: $colorBgAlt;
+	margin: 0 4rem 4rem 4rem;
+	padding: 0 0 12rem;
 
-.HomeNav > ul {
-	list-style: none;
-	text-align: center;
-	padding: 0;
+	& > ul {
+		list-style: none;
+		text-align: center;
+		padding: 0;
+	}
 }
 
 .HomeNav-li {
-	display: inline;
-	margin: 0 1em;
-}
+	display: inline-block;
+	margin: 0 3rem;
+	font-size: 2rem;
+	font-style: italic;
 
-.HomeNav-li.active {
-	border-bottom: .222em solid #b0a59d;
-	padding-bottom: .167em;
-}
+	&.active > span {
+		position: relative;
+		display: block;
+	}
 
-.HomeNav-li > a {
-	color: #32271e;
-	text-decoration: none;
-	border-bottom: .222em solid #f8f8f8;
-	padding-bottom: .167em;
-	transition: border-color 300ms ease;
-}
-.HomeNav-li > a:focus,
-.HomeNav-li > a:hover,
-.HomeNav-li > a:active {
-	border-color: #b0a59d;
+	&.active > span:after {
+		content: '';
+		position: absolute;
+		height: .1rem;
+		bottom: -5%;
+		right: -4%;
+		left: -4%;
+		margin-top: 1px;
+		background: $colorTypoBase;
+	}
+
+	& > a {
+		position: relative;
+		display: block;
+		color: $colorTypoBase;
+		text-decoration: none;
+		font-weight: 400;
+
+		&:hover {
+			color: $colorTypoAltLinkHover;
+		}
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			width: 0%;
+			height: 1px;
+			top: 50%;
+			margin-top: 1px;
+			background: $colorTypoBase;
+		}
+
+		&:before {
+			left: -15%;
+		}
+
+		&:after {
+			right: -15%;
+			background-color: $colorTypoBase;
+			transition: width 0.5s cubic-bezier( 0.22, 0.61, 0.36, 1 );
+		}
+
+		&:hover:before {
+			width: 130%;
+			background-color: $colorTypoBase;
+			transition: width 0.5s cubic-bezier( 0.22, 0.61, 0.36, 1 );
+		}
+
+		&:hover:after {
+			background: transparent;
+			width: 130%;
+			transition: 0s;
+		}
+	}
 }
 
 /* 	=== ProjectList === */
 
 .ProjectList {
-	padding: 6em 0 2.222em;
+	padding: 6rem 0 0;
 }
 
 .ProjectList-ul {
@@ -136,7 +215,7 @@ $colorSelectionTypo: #b0a59d;
 
 .ProjectList-projectListItem {
 	display: inline-block;
-	margin: 0.833em;
+	margin: 1.5rem;
 	vertical-align: top;
 	width: auto;
 }
@@ -146,42 +225,51 @@ $colorSelectionTypo: #b0a59d;
 .ProjectListItem-a {
 	display: block;
 	position: relative;
-}
 
-.ProjectListItem-a > div {
-	transition: opacity 180ms ease-out;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background-color: rgba( 0, 0, 0, .75 );
-	padding: 1.333em;
-	opacity: 0;
-}
+	&:hover,
+	&:active,
+	&:visited {
+		transform: none;
+	}
 
-.ProjectListItem-a:focus > div,
-.ProjectListItem-a:hover > div,
-.ProjectListItem-a:active > div {
-	opacity: 1;
-}
+	& > div {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: rgba( 0, 0, 0, .75 );
+		padding: 2rem;
+		opacity: 0;
+		transform: translate( 0, 1rem );
+		transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+	}
 
-.ProjectListItem-a > img {
-	width: 100%;
-}
+	&:focus > div,
+	&:hover > div,
+	&:active > div {
+		opacity: 1;
+		transform: translate( 0, 0 );
+	}
 
-.ProjectListItem-a > div > div {
-	display: table;
-	table-layout: fixed;
-	width: 100%;
-	height: 100%;
-	border: 4px solid #f8f8f8;
-	padding: 1em;
+	& > img {
+		width: 100%;
+	}
+
+	& > div > div {
+		display: table;
+		table-layout: fixed;
+		width: 100%;
+		height: 100%;
+		border: 1px solid $colorBgAlt;
+		padding: 1em;
+	}
 }
 
 .ProjectListItem-title {
-	color: #f8f8f8;
-	font-size: 1.111em;
+	color: $colorBgAlt;
+	font-size: 1.8rem;
+	font-weight: 400;
 	text-align: center;
 	display: table-cell;
 	vertical-align: middle;
@@ -190,31 +278,38 @@ $colorSelectionTypo: #b0a59d;
 /* 	=== Footer === */
 
 .Footer {
-	padding: 5em 0;
+	padding: 9rem 0;
+
+	&.alt {
+		margin: 0 2.222em;
+	}
 }
 
-.Footer.textcenter {
-	text-align: center;
+.TopButton > svg {
+	width: 1.8rem;
+	transition: transform 200ms ease-out;
+
+	&:hover {
+		transform: translate( 0, -1rem );
+	}
 }
 
-.Footer.alt {
-	margin: 0 2.222em;
-}
-
-.TopButton > img {
-	transition: transform 200ms ease;
-}
-
-.TopButton > img:hover {
-	transform: translate( 0, -6px );
+.ArrowTopPath {
+	stroke: $colorTypoBase;
 }
 
 .Footer-credits {
-	margin-top: 5em;
+	margin-top: 7rem;
 }
 
 .Credits {
-	font-size: 0.778em;
+	font-style: italic;
+	font-size: 1.6rem;
+	line-height: 1.4;
+
+	& > a {
+		font-weight: 600;
+	}
 }
 
 /* 	=== AltHeader === */
