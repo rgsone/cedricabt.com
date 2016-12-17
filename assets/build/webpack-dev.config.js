@@ -50,6 +50,22 @@ module.exports = {
 			},
 
 			{
+				test: /\.css$/,
+				loader: [
+
+					'style-loader',
+
+					{
+						loader: 'css-loader',
+						query: { minimize: false, sourceMap: false, import: true }
+					},
+
+					'postcss-loader'
+
+				]
+			},
+
+			{
 				test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
 				exclude: /font/,
 				loader: 'url-loader',

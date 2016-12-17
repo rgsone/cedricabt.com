@@ -134,12 +134,16 @@ const webpackProdConfig = {
 			comments: false,
 			compress: {
 				warnings: true,
-				drop_console: false
+				drop_console: true
 			},
+			mangle: false
+			/*
+			}
 			mangle: {
 				screw_ie8 : true,
 				keep_fnames: true
 			}
+			*/
 		}),
 		/*
 		new CopyWebpackPlugin([{
