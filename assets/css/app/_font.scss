@@ -3,24 +3,12 @@
 		======================================================================
 		====================================================================== */
 
-@font-face {
-	font-family: 'firaSans';
-	font-weight: bold;
-	font-style: normal;
-	src: url( '../font/firasans-sbold.eot' );
-	src: url( '../font/firasans-sbold.eot?#iefix' ) format( 'embedded-opentype' ),
-	url( '../font/firasans-sbold.woff' ) format( 'woff' ),
-	url( '../font/firasans-sbold.ttf' ) format( 'truetype' ),
-	url( '../font/firasans-sbold.svg#firaSansBold' ) format( 'svg' );
-}
+// regular(400)
+@include font-face( 'Vollkorn', '../font/vollkorn', 400, normal, 'Vollkorn', woff2 woff );
+// regular(400) - italic
+@include font-face( 'Vollkorn', '../font/vollkorn-it', 400, italic, 'Vollkorn', woff2 woff );
 
-@font-face {
-	font-family: 'firaSans';
-	font-weight: bold;
-	font-style: italic;
-	src: url( '../font/firasans-sbold-ita.eot' );
-	src: url( '../font/firasans-sbold-ita.eot?#iefix' ) format( 'embedded-opentype' ),
-	url( '../font/firasans-sbold-ita.woff' ) format( 'woff' ),
-	url( '../font/firasans-sbold-ita.ttf' ) format( 'truetype' ),
-	url( '../font/firasans-sbold-ita.svg#firaSansBoldIta' ) format( 'svg' );
-}
+// semibold(600)
+@include font-face( 'Vollkorn', '../font/vollkorn-semibold', 600, normal, 'VollkornSemibold' 'Vollkorn Semibold', woff2 woff );
+// semibold(600) - italic
+@include font-face( 'Vollkorn', '../font/vollkorn-semibold-it', 600, italic, 'VollkornSemibold' 'Vollkorn Semibold', woff2 woff );
