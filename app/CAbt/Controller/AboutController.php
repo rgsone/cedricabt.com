@@ -68,7 +68,7 @@ class AboutController extends BaseController
 		if ( $this->app['filesystem']->exists( $dataFilePath ) )
 		{
 			$textileParser = $this->app['textile'];
-			$content = $textileParser->textileThis( $this->parseFile( $dataFilePath ) );
+			$content = $textileParser->parse( $this->parseFile( $dataFilePath ) );
 		}
 
 		return $this->render( 'about.twig', array( 'content' => $content ));

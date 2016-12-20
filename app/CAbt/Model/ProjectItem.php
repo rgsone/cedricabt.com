@@ -242,7 +242,7 @@ class ProjectItem
 	public function getParsedDescContent()
 	{
 		if ( null == $this->_textileParser ) return '';
-		return $this->_textileParser->textileThis( $this->getDescContent() );
+		return $this->_textileParser->parse( $this->getDescContent() );
 	}
 
 	/**
