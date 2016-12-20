@@ -1,0 +1,104 @@
+/* 	======================================================================
+		|	STRUCTURE / ALT
+		======================================================================
+		====================================================================== */
+
+.AltHeader {
+	padding: 0;
+	margin-bottom: 10rem;
+	background-color: $colorBgAlt;
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+
+	&-altTagline {
+		margin: 0;
+		padding-top: .3rem;
+	}
+}
+
+.AltTagline {
+	text-align: center;
+	font-style: italic;
+	font-weight: 400;
+
+	&-logoSmall {
+		margin: 0 2rem;
+	}
+}
+
+.NavPrev > a,
+.NavNext > a {
+	display: block;
+	font-weight: 400;
+	font-style: italic;
+	transform: none;
+
+	& > span {
+		display: inline-block;
+		transition: transform 100ms ease-out;
+	}
+}
+
+
+.NavPrev > a {
+	padding: 5rem 1rem 5rem 3rem;
+
+	&:hover > span {
+		transform: translate(-.6rem, 0);
+	}
+}
+
+.NavNext > a {
+	padding: 5rem 3rem 5rem 1rem;
+
+	&:hover > span {
+		transform: translate(.6rem, 0);
+	}
+}
+
+/*  === breakpoints === */
+
+@media ( max-width: 600px ) {
+	.AltHeader {
+		flex-wrap: wrap;
+		margin-bottom: 4rem;
+	}
+
+	.AltHeader-altTagline {
+		order: 1;
+		flex-basis: 100%;
+		padding: 4rem 0 4rem;
+	}
+
+	.NavNext {
+		order: 3;
+		flex-basis: 50%;
+		text-align: center;
+		border-top: 1px dotted $colorSeparatorAltMenu;
+		border-left: 1px dotted $colorSeparatorAltMenu;
+
+		& > a {
+			padding: 3rem 0;
+
+			&:hover > span {
+				transform: translate(.6rem, 0);
+			}
+		}
+	}
+
+	.NavPrev {
+		order: 2;
+		flex-basis: 50%;
+		text-align: center;
+		border-top: 1px dotted $colorSeparatorAltMenu;
+
+		& > a {
+			padding: 3rem 0;
+
+			&:hover > span {
+				transform: translate(-.6rem, 0);
+			}
+		}
+	}
+}

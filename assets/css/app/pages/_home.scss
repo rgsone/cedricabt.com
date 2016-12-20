@@ -1,0 +1,382 @@
+/* 	======================================================================
+		|	STRUCTURE / HOME
+		======================================================================
+		====================================================================== */
+
+/* 	=== HomeHeader === */
+
+.HomeHeader {
+	background-color: $colorBgAlt;
+	padding: 0;
+	margin: 4rem 4rem 0;
+	text-align: center;
+
+	&-logoBig {
+		margin-top: 12rem;
+		margin-bottom: 6rem;
+	}
+}
+
+@media ( max-width: 700px ) {
+
+	.HomeHeader {
+		margin: 2rem 2rem 0;
+
+		&-logoBig {
+			margin-top: 8rem;
+			margin-bottom: 4rem;
+		}
+	}
+
+}
+
+@media ( max-width: 400px ) {
+
+	.HomeHeader {
+		margin: 0;
+
+		&-logoBig {
+			margin-top: 4rem;
+			margin-bottom: 4rem;
+		}
+	}
+
+}
+
+/* 	=== HomeTagline === */
+
+.HomeHeader-homeTagline {
+	margin: 0;
+}
+
+.HomeTagline {
+	font-size: 4rem;
+	font-weight: 600;
+	font-style: italic;
+	line-height: 1;
+}
+
+.HomeHeader-homeSubTagline {
+	margin: 0;
+}
+
+.HomeSubTagline {
+	font-size: 3rem;
+	font-weight: 400;
+	font-style: italic;
+}
+
+@media ( max-width: 400px ) {
+
+	.HomeTagline {
+		font-size: 3.6rem;
+	}
+
+	.HomeSubTagline {
+		font-size: 2.6rem;
+	}
+}
+
+/* 	=== HomeSeparator === */
+
+.HomeHeader-homeSeparator {
+	margin: 2rem 0 2.2rem;
+}
+
+.HomeSeparator {
+	font-size: 3rem;
+	line-height: 1;
+	font-weight: 600;
+}
+
+@media ( max-width: 400px ) {
+
+	.HomeHeader-homeSeparator {
+		display: none;
+	}
+}
+
+/* 	=== HomeNav === */
+
+.HomeNav {
+	background-color: $colorBgAlt;
+	margin: 0 4rem 4rem 4rem;
+	padding: 0 0 12rem;
+
+	& > ul {
+		list-style: none;
+		text-align: center;
+		padding: 0;
+	}
+}
+
+.HomeNav-li {
+	display: inline-block;
+	margin: 0 3rem;
+	font-size: 2rem;
+	font-style: italic;
+
+	&.active > span {
+		position: relative;
+		display: block;
+	}
+
+	&.active > span:after {
+		content: '';
+		position: absolute;
+		height: .1rem;
+		bottom: -5%;
+		right: -4%;
+		left: -4%;
+		margin-top: 1px;
+		background: $colorTypoBase;
+	}
+
+	& > a {
+		position: relative;
+		display: block;
+		color: $colorTypoBase;
+		text-decoration: none;
+		font-weight: 400;
+
+		&:hover {
+			color: $colorTypoAltLinkHover;
+		}
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			width: 0%;
+			height: 1px;
+			top: 50%;
+			margin-top: 1px;
+			background: $colorTypoBase;
+		}
+
+		&:before {
+			left: -15%;
+		}
+
+		&:after {
+			right: -15%;
+			background-color: $colorTypoBase;
+			transition: width 0.5s cubic-bezier( 0.22, 0.61, 0.36, 1 );
+		}
+
+		&:hover:before {
+			width: 130%;
+			background-color: $colorTypoBase;
+			transition: width 0.5s cubic-bezier( 0.22, 0.61, 0.36, 1 );
+		}
+
+		&:hover:after {
+			background: transparent;
+			width: 130%;
+			transition: 0s;
+		}
+	}
+}
+
+@media ( max-width: 700px ) {
+
+	.HomeNav {
+		margin: 0 2rem 2rem 2rem;
+		padding: 0 0 8rem;
+	}
+
+	.HomeNav-li {
+		margin: 0 1.6rem;
+	}
+
+}
+
+@media ( max-width: 400px ) {
+
+	.HomeNav {
+		padding: 4rem 0 0;
+		margin: 0;
+
+		&-li {
+			display: block;
+			margin: 0;
+			padding: 0;
+			border-top: 1px dotted $colorSeparatorAltMenu;
+			font-size: 2.2rem;
+
+			&:last-child {
+				border-bottom: 1px dotted $colorSeparatorAltMenu;
+			}
+
+			&.active > span {
+				padding: 1.5rem 0;
+				background-color: $colorBgNavLinkActive;
+			}
+
+			&.active > span:after {
+				content: none;
+			}
+
+			& > a {
+				transform: none;
+				padding: 1.5rem 0;
+
+				&:hover {
+					background-color: $colorBgNavLinkActive;
+				}
+
+				&:before,
+				&:after {
+					content: none;
+				}
+			}
+		}
+	}
+
+}
+
+/* 	=== ProjectList === */
+
+.ProjectList {
+	padding: 6rem 0 0;
+}
+
+.ProjectList-ul {
+	padding: 0;
+	list-style: none;
+	max-width: 1720px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.ProjectList-projectListItem {
+	display: inline-block;
+	margin: 1.5rem;
+	vertical-align: top;
+	width: auto;
+}
+
+@media ( max-width: 700px ) {
+
+	.ProjectList {
+		padding: 0;
+
+		&-projectListItem {
+			margin: 0;
+			width: 50%;
+		}
+	}
+
+}
+
+@media ( max-width: 400px ) {
+
+	.ProjectList-projectListItem {
+		width: auto;
+	}
+
+}
+
+/* 	=== ProjectListItem === */
+
+.ProjectListItem-a {
+	display: block;
+	position: relative;
+
+	&:hover,
+	&:active,
+	&:visited {
+		transform: none;
+	}
+
+	& > div {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: rgba( 0, 0, 0, .75 );
+		padding: 2rem;
+		opacity: 0;
+		transform: translate( 0, 1rem );
+		transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+	}
+
+	&:focus > div,
+	&:hover > div,
+	&:active > div {
+		opacity: 1;
+		transform: translate( 0, 0 );
+	}
+
+	& > img {
+		width: 100%;
+	}
+
+	& > div > div {
+		display: table;
+		table-layout: fixed;
+		width: 100%;
+		height: 100%;
+		border: 1px solid $colorBgAlt;
+		padding: 1em;
+	}
+}
+
+.ProjectListItem-title {
+	color: $colorBgAlt;
+	font-size: 1.8rem;
+	font-weight: 400;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+/* 	=== Footer === */
+
+.Footer {
+	padding: 9rem 0;
+
+	&.alt {
+		margin: 0 2.222em;
+	}
+}
+
+.TopButton > svg {
+	transition: transform 200ms ease-out;
+
+	&:hover {
+		transform: translate( 0, -1rem );
+	}
+}
+
+.ArrowTopPath {
+	stroke: $colorTypoBase;
+}
+
+.Footer-credits {
+	margin-top: 7rem;
+}
+
+.Credits {
+	font-style: italic;
+	font-size: 1.6rem;
+	line-height: 1.4;
+}
+
+@media ( max-width: 400px ) {
+
+	.TopButton:hover {
+		transform: none;
+	}
+
+	.Footer-credits {
+		margin-top: 5rem;
+	}
+
+	.Credits {
+		font-size: 1.8rem;
+		line-height: 1.3;
+	}
+
+}

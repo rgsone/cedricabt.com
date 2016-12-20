@@ -1,0 +1,75 @@
+/* 	======================================================================
+		|	STRUCTURE / CONTENT
+		======================================================================
+		====================================================================== */
+
+.Content {
+	padding: 0 2rem;
+
+	& > p {
+		margin: 2rem auto;
+		max-width: 70rem;
+		font-size: 2rem;
+		line-height: 1.3;
+
+		& a {
+			font-size: 1.9rem;
+		}
+	}
+
+	& > h1 {
+		margin: 5rem auto 2rem;
+		max-width: 70rem;
+		font-size: 3.6rem;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	& > h2 {
+		font-size: 2.6rem;
+		font-weight: 600;
+		margin: 5rem auto 1.6rem;
+		max-width: 70rem;
+	}
+
+	& img {
+		display: block;
+		margin: 1em auto;
+	}
+
+	& > ul {
+		max-width: 70rem;
+		margin: 1rem auto;
+	}
+
+	& > .Content-imgAbout {
+		margin-bottom: 7rem;
+	}
+
+	& .Content-imgContact {
+		margin-top: 4rem;
+		margin-bottom: 5rem;
+	}
+
+	& > .ContentSeparator {
+		text-align: center;
+		font-size: 2.6rem;
+		font-weight: 600;
+		margin-top: 6rem;
+		margin-bottom: 6rem;
+	}
+
+	& .ContactMail {
+		font-size: 2.4rem;
+	}
+}
+
+@media ( max-width: 600px ) {
+	.Content {
+		& > .Content-imgAbout {
+			margin-bottom: 4rem;
+		}
+	}
+}

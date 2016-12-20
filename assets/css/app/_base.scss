@@ -29,7 +29,7 @@ body {
 html,
 body {
 	margin: 0;
-	padding: 0;
+	padding: 1px 0 0;
 }
 
 ul,
@@ -105,7 +105,7 @@ kbd {
 
 a {
 	display: inline-block;
-	transition: transform 200ms ease;
+	transition: transform 200ms ease, color 200ms ease;
 	color: $colorTypoLink;
 	font-weight: 600;
 	text-decoration: none;
@@ -114,7 +114,7 @@ a {
 	&:hover,
 	&:active {
 		transform: translate( 0, -.3rem );
-		color: $colorTypoAltLinkHover;
+		color: $colorTypoLinkHover;
 	}
 }
 
