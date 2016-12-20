@@ -1,32 +1,32 @@
 {% extends "base.layout.twig" %}
 
 {% block title %}À Propos | Cédric Abt — Illustrateur{% endblock %}
+{% block bodyattr %}id="top"{% endblock %}
 
-{%  block body %}
-	<a id="top"></a>
+{% block header %}
 	<header class="AltHeader">
-		<img class="AltHeader-logoSmall LogoSmall" src="{{ app.asset('/assets/static/logo-small.png') }}" alt="logo - renard">
-		<h4 class="AltHeader-altTagline AltTagline">Cédric Abt — Illustrateur</h4>
-		<nav class="AltHeader-altNav AltNav">
-			<ul>
-				<li class="AltNav-li"><a href="{{ app.path(app.config.route.names.home) }}" title="projets">projets</a></li>
-				<li class="AltNav-li active">à propos</li>
-				<li class="AltNav-li"><a href="{{ app.path(app.config.route.names.contact) }}" title="contact">contact</a></li>
-			</ul>
-		</nav>
+
+		<div class="AltHeader-navPrev NavPrev">
+			<a href="{{ app.path(app.config.route.names.home) }}" title="projets"><span>&#8592;</span> projets</a>
+		</div>
+
+		<h4 class="AltHeader-altTagline AltTagline">
+			Cédric Abt
+			<img class="AltTagline-logoSmall LogoSmall" src="{{ app.asset('/assets/static/logo-small.png') }}" alt="logo - renard">
+			Illustrateur
+		</h4>
+
+		<div class="AltHeader-navNext NavNext">
+			<a href="{{ app.path(app.config.route.names.contact) }}" title="contact">contact <span>&#8594;</span></a>
+		</div>
+
 	</header>
+{% endblock header %}
+{% block content %}
 	<section class="Content">
-		<h1>À propos</h1>
-		<img src="{{ app.asset('/assets/static/illu-about.png') }}" alt="illustration – à propos">
+		<img class="Content-imgAbout ImgAbout center" src="{{ app.asset('/assets/static/illu-about.png') }}" alt="illustration – à propos">
 		{% autoescape false %}
 			{{ content }}
 		{% endautoescape %}
 	</section>
-	<footer class="Footer alt">
-		<div class="Footer-topButton">
-			<a class="TopButton" href="#top" title="retour en haut" data-backtotop>
-				<img src="{{ app.asset('/assets/static/top-arrow.png') }}" alt="flêche vers le haut">
-			</a>
-		</div>
-	</footer>
-{% endblock body %}
+{% endblock content %}

@@ -1,13 +1,13 @@
 {% extends "base.layout.twig" %}
 
 {% block title %}404 — Oups ! Cette page n'existe pas ! | Cédric Abt — Illustrateur{% endblock title %}
+{% block bodyattr %}class="Error404"{% endblock %}
 
-{% block bodyclass %}class="Error404"{% endblock bodyclass %}
-
-{% block body %}
+{% block content %}
 	<div class="txtcenter">
 		<a href="{{ app.path(app.config.route.names.home) }}" title="Retour sur le site">
 			<img src="{{ app.asset('/assets/static/404.jpg') }}" alt="404">
 		</a>
 	</div>
-{% endblock body %}
+{% endblock content %}
+{% block footer %}{% endblock footer %}

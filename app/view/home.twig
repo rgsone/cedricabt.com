@@ -1,11 +1,9 @@
 {% extends "base.layout.twig" %}
 
 {% block title %}Cédric Abt — Illustrateur{% endblock %}
+{% block bodyattr %}id="top"{% endblock %}
 
-{% block bodyclass %}id="top"{% endblock %}
-
-{%  block body %}
-	{#<a id="top"></a>#}
+{% block header %}
 	<header class="HomeHeader">
 		<div class="HomeHeader-logoBig">
 			<img class="LogoBig" src="{{ app.asset('/assets/static/logo.png') }}" alt="logo - renard">
@@ -21,6 +19,8 @@
 			<li class="HomeNav-li"><a href="{{ app.path(app.config.route.names.contact) }}" title="contact">contact</a></li>
 		</ul>
 	</nav>
+{% endblock header %}
+{% block content %}
 	<section class="ProjectList">
 		<ul class="ProjectList-ul">
 			{%- for project in projects -%}
@@ -41,18 +41,4 @@
 			{%- endfor -%}
 		</ul>
 	</section>
-	<footer class="Footer txtcenter">
-		<div class="Footer-topButton">
-			<a class="TopButton" href="#top" title="retour en haut" data-backtotop>
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 41">
-					<path class="ArrowTopPath" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" d="M9 .5v40M.5 9L9 .5M9 .5L17.5 9"/>
-				</svg>
-			</a>
-		</div>
-		<p class="Footer-credits Credits">
-			Cédric Abt – {{ "now"|date("Y", "Europe/Paris") }}
-			<br>
-			fait main par <a href="http://rgsone.com" title="rgsone.com">rgsone</a>
-		</p>
-	</footer>
-{% endblock body %}
+{% endblock content %}

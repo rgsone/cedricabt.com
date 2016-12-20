@@ -35,8 +35,25 @@
 	{% endif %}
 
 </head>
-<body {% block bodyclass %}{% endblock %}>
-	{% block body %}{% endblock %}
+<body {% block bodyattr %}{% endblock %}>
+	{% block header %}{% endblock %}
+	{% block content %}{% endblock %}
+	{% block footer %}
+		<footer class="Footer txtcenter">
+			<div class="Footer-topButton">
+				<a class="TopButton" href="#top" title="retour en haut" data-backtotop>
+					<svg class="ArrowTopPath" width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+						<path class="ArrowTopPath" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" d="M20 .5v40M11.5 9L20 .5m0 0L28.5 9"/>
+					</svg>
+				</a>
+			</div>
+			<p class="Footer-credits Credits">
+				Cédric Abt – {{ "now"|date("Y", "Europe/Paris") }}
+				<br>
+				fait main par <a href="http://rgsone.com" title="rgsone.com">rgsone</a>
+			</p>
+		</footer>
+	{% endblock %}
 	{% block js %}
 	<!-- JS -->
 	<script src="{{ app.getJs() }}"></script>
