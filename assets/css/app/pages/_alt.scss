@@ -9,11 +9,16 @@
 	background-color: $colorBgAlt;
 	display: flex;
 	align-items: baseline;
-	justify-content: space-between;
 
 	&-altTagline {
 		margin: 0;
 		padding-top: .3rem;
+		flex-grow: 0;
+	}
+
+	&-navPrev,
+	&-navNext {
+		flex-grow: 1;
 	}
 }
 
@@ -49,11 +54,15 @@
 	}
 }
 
-.NavNext > a {
-	padding: 5rem 3rem 5rem 1rem;
+.NavNext {
+	text-align: right;
 
-	&:hover > span {
-		transform: translate(.6rem, 0);
+	& > a {
+		padding: 5rem 3rem 5rem 1rem;
+
+		&:hover > span {
+			transform: translate(.6rem, 0);
+		}
 	}
 }
 
