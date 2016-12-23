@@ -4,21 +4,7 @@
 {% block bodyattr %}id="top"{% endblock %}
 
 {% block header %}
-	<header class="HomeHeader">
-		<div class="HomeHeader-logoBig">
-			<img class="LogoBig" src="{{ app.asset('/assets/static/logo.png') }}" alt="logo - renard">
-		</div>
-		<h1 class="HomeHeader-homeTagline HomeTagline">Cédric Abt</h1>
-		<h2 class="HomeHeader-homeSubTagline HomeSubTagline">Illustrateur</h2>
-		<div class="HomeHeader-homeSeparator HomeSeparator">~</div>
-	</header>
-	<nav class="HomeNav">
-		<ul>
-			<li class="HomeNav-li active"><span>projets</span></li>
-			<li class="HomeNav-li"><a href="{{ app.path(app.config.route.names.about) }}" title="à propos">à propos</a></li>
-			<li class="HomeNav-li"><a href="{{ app.path(app.config.route.names.contact) }}" title="contact">contact</a></li>
-		</ul>
-	</nav>
+	{% include '_main_header.twig' %}
 {% endblock header %}
 {% block content %}
 	<section class="ProjectList">
